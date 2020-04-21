@@ -1,0 +1,141 @@
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-left: -12%;
+    margin-right: -12%;
+ 
+}
+
+#map {
+    display: block;
+    height: 500px;
+    width: 100%;
+}
+
+.contact-form{
+    width: 65%;
+    height: 500px;
+    border:1px solid #ced4da;
+    position: absolute;
+    transform: translateY(270px);;
+    display: flex;
+    border-radius: 1%;
+    overflow: hidden;
+    margin-bottom: 300px;
+}
+
+.contact-inputs{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    padding: 50px;
+}
+
+.contact-inputs form{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+}
+
+.input-form{
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    width: 100%;
+    height: 45px;
+}
+
+.textarea-form{
+    width: 100%;
+    height: 200px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.contact-inputs form input{
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-inputs form textarea{
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    width: 100%;
+    height: 100%;
+}
+
+.title{
+    font-size: 40px;
+}
+
+.top-canvas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.top-canvas button{
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 13%;
+    color: white;
+    background-color: rgb(24, 70, 138);
+    min-width: 100px;
+}
+
+.contact-info{
+    width: 30%;
+    height: 100%;
+    /* border: 1px solid red; */
+    border-left: 1px solid #bec0c2;
+    background-image: url('/movieshop/module/client/view/img/background-contact-info.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #495057;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    padding-top: 50px;
+
+}
+
+.contact-info .item{
+margin-top: 35px;
+}
+
+.contact-info .item span{
+    margin-left: 10px;
+}
+
+.address-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.tlf-info{
+    display: flex;
+    flex-direction: column;
+}
