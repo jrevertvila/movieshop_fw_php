@@ -1,0 +1,4 @@
+- how to activate mod_rewrite in apache
+---------------------------------------------
+    - https://stackoverflow.com/questions/869092/how-to-enable-mod-rewrite-for-apache-2-2
+    - https://hostadvice.com/how-to/how-to-enable-apache-mod_rewrite-on-an-ubuntu-18-04-vps-or-dedicated-server/
