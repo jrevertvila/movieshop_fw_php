@@ -28,7 +28,8 @@
     //CLIENT VIEW
     define('CLIENT_VIEW_PATH', SITE_ROOT . 'modules/client/view/');
 
-
+    //PRETTY URLS ACTIVE
+    define('PRETTY_URLS', TRUE);
 
     //CONTACT
     define('CLIENT_CONTACT_PATH', CLIENT_MODULES_PATH . 'contact/');

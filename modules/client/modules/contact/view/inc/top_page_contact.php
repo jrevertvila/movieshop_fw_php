@@ -31,6 +31,7 @@
 	<!-- <link href="modules/client/modules/home/view/css/search-bar.css" rel="stylesheet" type="text/css"/> -->
 	<!-- <link href="modules/client/modules/cart/view/css/cart_header.css" rel="stylesheet" type="text/css"/> -->
 
+	<script type="text/javascript" src="view/js/main.js"></script>
 	<script type="text/javascript" src="modules/client/modules/contact/view/js/controller_contact.js"></script>
 	<!-- <script type="text/javascript" src="modules/client/modules/cart/controller/controller_cart.js"></script> -->
 	<!-- <script type="text/javascript" src="modules/client/modules/login/model/activity.js"></script> -->

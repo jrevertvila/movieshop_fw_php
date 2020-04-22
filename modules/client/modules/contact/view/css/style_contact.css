@@ -72,6 +72,10 @@
     height: 100%;
 }
 
+.msg_error{
+    color: red;
+}
+
 .contact-inputs form textarea{
 
     font-size: 1rem;
@@ -93,7 +97,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+    width: 100%;
+    padding-right: 15px;
 }
 .top-canvas button{
     border: none;
@@ -103,6 +108,7 @@
     color: white;
     background-color: rgb(24, 70, 138);
     min-width: 100px;
+    margin-bottom: 10px;
 }
 
 .contact-info{

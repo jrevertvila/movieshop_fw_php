@@ -13,4 +13,19 @@ class controller_contact {
         loadView(CLIENT_CONTACT_VIEW_PATH,'contact.html');
         require(CLIENT_VIEW_PATH . "inc/bottom_page.html");
     }
+
+    function send_contact(){//carga la vista(HTML JS)
+        $data = array(
+            'type' => 'contact',
+            'name' => $_POST['name-contact'],
+            'email' => $_POST['email-contact'],
+            'tlf' => $_POST['tlf-contact'],
+            'location' => $_POST['location-contact'],
+            'issue' => $_POST['issue-contact']
+        );
+        
+        $hola = send_email($data);
+        echo json_encode($hola);
+        exit;
+    }
 }

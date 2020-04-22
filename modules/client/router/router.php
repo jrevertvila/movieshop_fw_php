@@ -1,7 +1,8 @@
 <?php
     require_once("paths.php");
     include(UTILS . "common.inc.php");
-
+    include(UTILS . "mail.inc.php");
+    
     function handlerRouter() {
         //echo "HANDLER_ROUTER_CLIENT";
         if (!empty($_GET['module'])) {
