@@ -61,7 +61,8 @@ $(document).ready(function(){
         }
     );
     $('#contact-us').on('click', function() {
-        location.href="index.php?page=contact";
+        console.log("aaaaaa");
+        location.href=pretty("?module=contact&function=list_contact");
     });
 
     $('#header-register').on('click', function() {

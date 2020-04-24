@@ -8,6 +8,8 @@ class controller_contact {
 
     function list_contact(){//carga la vista(HTML JS)
         //echo "LIST CONTACT";
+        // echo CLIENT_CONTACT_VIEW_PATH . "inc/top_page_contact.php";
+        // die;
         require(CLIENT_CONTACT_VIEW_PATH . "inc/top_page_contact.php");
         require(CLIENT_VIEW_PATH . "inc/header_pages.html");
         loadView(CLIENT_CONTACT_VIEW_PATH,'contact.html');
@@ -24,8 +26,8 @@ class controller_contact {
             'issue' => $_POST['issue-contact']
         );
         
-        $hola = send_email($data);
-        echo json_encode($hola);
+        $result = send_email($data);
+        echo json_encode($result);
         exit;
     }
 }

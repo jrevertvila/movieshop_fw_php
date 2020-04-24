@@ -72,6 +72,10 @@
     height: 100%;
 }
 
+.toast-top-right{
+    margin-top: 50px !important;
+}
+
 .msg_error{
     color: red;
 }

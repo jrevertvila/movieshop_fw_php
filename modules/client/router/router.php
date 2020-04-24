@@ -65,17 +65,17 @@
         //echo "<br>";
         //echo "HANDLER FUNCTION";
         //echo "<br>";
+        
         $functions = simplexml_load_file(CLIENT_MODULES_PATH . $module . "/resources/function.xml");
         $exist = false;
-    
         foreach ($functions->function as $function) {
             if (($URI_function === (String) $function->uri)) {
-                //echo "EXISTS";
                 $exist = true;
                 $event = (String) $function->name;
                 break;
             }
         }
+        
         
         //echo "<br>";
 
@@ -85,6 +85,9 @@
             require_once(VIEW_PATH_INC . "404.php");
             require_once(VIEW_PATH_INC . "footer.html");
         } else {
+            // echo CLIENT_MODULES_PATH;
+            // var_dump($event);
+            // die;
             call_user_func(array($obj, $event));
         }
     }

@@ -9,41 +9,47 @@
         switch ($data['type']) {    
             case 'contact':
                 $ruta = '<a href=' . 'http://localhost/movieshop_fw_php/'. '></a>';
-                $body = 'Puedes visitar nuestra web en: ' . $ruta;
+                $body = 'Puedes visitar nuestra web en: <a href="http://localhost/movieshop_fw_php/">www.movieshop.com</a>';
             break;
         }
         
         $html .= "<html>";
         $html .= "<body>";
-            $html .= "Contact information:";
+            $html .= "<strong>Contact information:</strong>";
             $html .= "<br><br>";
-            $html .= "<span>Name: ".$data['issue']."</span>";
-            $html .= "<span>Email: ".$data['issue']."</span>";
-            $html .= "<span>Tlf: ".$data['issue']."</span>";
-            $html .= "<span>Location: ".$data['issue']."</span>";
+            $html .= "<span><strong>Name:</strong> ".$data['name']."</span><br>";
+            $html .= "<span><strong>Email:</strong> ".$data['email']."</span><br>";
+            $html .= "<span><strong>Tlf:</strong> ".$data['tlf']."</span><br>";
+            $html .= "<span><strong>Location:</strong> ".$data['location']."</span><br>";
            $html .= "<br><br>";
-           $html .= "Mensaje:";
-           $html .= "<br><br>";
+           $html .= "<strong>Mensaje:</strong>";
+           $html .= "<br>";
            $html .= $data['issue'];
            $html .= "<br><br>";
 	       $html .= $body;
-	       $html .= "<br><br>";
+	       $html .= "<br>";
 	       $html .= "<p>Sent by Movieshop</p>";
 		$html .= "</body>";
 		$html .= "</html>";
 
         //set_error_handler('ErrorHandler');
         try{
-            if ($data['type'] === 'admin')
-                $address = 'movieshop@gmail.com';
-            else
-                $address = $data['email'];
-            $result = send_mailgun('movieshop@gmail.com', $address, $subject, $html);    
+            if ($data['type'] === 'admin'){
+                $addressTO = 'jrevertvila@gmail.com';
+            }else if($data['type'] === 'contact'){
+                $subject="Contact Message Movieshop";
+                $addressTO = 'jrevertvila@gmail.com';
+                send_mailgun('movieshop@gmail.com', $data['email'], $subject, "The email has been sent successfully. Wait until the team answers. This can take between 1 or 3 days.");
+            }else{
+                $addressTO = $data['email'];
+            }
+                
+            send_mailgun('movieshop@gmail.com', $addressTO, $subject, $html);    
         } catch (Exception $e) {
 			$return = 0;
 		}
 		//restore_error_handler();
-        return $result;
+        return true;
     }
 
     function send_mailgun($from, $email, $subject, $html){
@@ -56,8 +62,8 @@
     	$message['from'] = $from;
     	$message['to'] = $email;
     	$message['h:Reply-To'] = "movieshop@gmail.com";
-    	$message['subject'] = "Hello, this is a test";
-    	$message['html'] = 'Hello ' . $email . ',</br></br> This is a test';
+    	$message['subject'] = $subject;
+    	$message['html'] = $html;
      
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $config['api_url']);

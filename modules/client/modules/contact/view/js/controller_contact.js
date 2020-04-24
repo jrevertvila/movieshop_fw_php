@@ -21,7 +21,7 @@ $(document).ready(function () {
                     
                     '<div class="input-form">'+
                         '<span id="e_email_contact" class="msg_error"></span>'+
-                        '<input type="email" id="email-contact" name="email-contact" placeholder="Email *" value="jrevertvila@gmail.com">'+
+                        '<input type="email" id="email-contact" name="email-contact" placeholder="Email *" value="joel.iestacio@gmail.com">'+
                     '</div>'+
                     
                     '<div class="input-form">'+
@@ -138,14 +138,13 @@ function validateContact(){
         return 0;
     }else{
         var data = $("#formContact").serialize();
-        console.log(data);
-        console.log(pretty("?module=contact&function=send_contact"));
         var check = sendContact(data);
-        console.log(check);
         if(check == true){
             console.log("ENVIADO");
+            toastr.success('Email sent successfully!');
         }else{
             console.log("ERROR");
+            toastr.error('Something went wrong :/ Wait or try again.');
         }
 
     }
@@ -157,16 +156,17 @@ function sendContact(data){
         data: data,
         type: 'POST',
         url: pretty("?module=contact&function=send_contact"),
-        
         success: function (data) {
-            console.log(data);
-            a = true;
+            if (data == "true"){
+                a = true;
+            }else{
+                a = false;
+            }
         },
         error: function(){
             console.log('error');
             a = false;
         }
     });
-
     return a;
 }
