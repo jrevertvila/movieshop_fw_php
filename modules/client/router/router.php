@@ -18,8 +18,7 @@
         if (!empty($_GET['function'])) {
             $URI_function = $_GET['function'];
         } else {
-            //$URI_function = 'list_home';
-            $URI_function = 'list_contact';
+            $URI_function = 'default'; //Asignar a default para identificarla en handlerModule()
         }
         handlerModule($URI_module, $URI_function);
     }
@@ -34,7 +33,7 @@
         foreach ($modules->module as $module) {
             if (($URI_module === (String) $module->uri)) {
                 $exist = true;
-    
+                $default_func = (String) $module->default_function;
                 $path = CLIENT_MODULES_PATH . $URI_module . "/controller/controller_" . $URI_module . ".class.php";
                 //echo $path;
                 if (file_exists($path)) {
@@ -49,6 +48,11 @@
                     // require_once(VIEW_PATH_INC . "404.php");
                     // require_once(VIEW_PATH_INC . "footer.html");
                 }
+                
+                if ($URI_function == 'default'){ //Si UriFunction es default, asigna la funcion por defecto establecida en XML.
+                    $URI_function = $default_func;
+                }
+
                 handlerFunction(((String) $module->name), $obj, $URI_function);
                 break;
             }
