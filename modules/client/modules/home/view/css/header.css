@@ -1,0 +1,85 @@
+
+
+/* START HEADER */
+header{
+    box-shadow: 0px 0px 6px 2px #000000;
+    background: #8d4c4c;
+    background-image: url("/movieshop_fw_php/modules/client/view/media/Netflix-Background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header{
+    color: white;
+    background-color: rgba(50, 50, 50, 0.0);
+    position: fixed;
+    z-index: 10;
+}
+
+.header-logo{
+    float: left;
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.header-logo span a{
+    text-decoration: none;
+    color: white;
+}
+
+.header-pull-right{
+    float: right;
+    height: 100%;
+    display: flex;
+    padding-bottom: 6px;
+}
+.header .header-main {
+    width: 100vw;
+    display: table;
+    padding: 0 30px;
+    height: 60px;
+    background-color: #212121e8;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+.header-button{
+    width: 135px;
+    margin-top: 2px;
+    margin-right: 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-bottom: 1.3px solid transparent;
+}
+
+.lang-div{
+    width: 135px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+
+.sub-header {
+    text-align: center;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filters {
+    text-align: center;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* FINISH HEADER */
+

@@ -34,3 +34,8 @@
     //CONTACT
     define('CLIENT_CONTACT_PATH', CLIENT_MODULES_PATH . 'contact/');
     define('CLIENT_CONTACT_VIEW_PATH', CLIENT_MODULES_PATH . 'contact/view/');
+
+    //HOME
+    define('CLIENT_HOME_PATH', CLIENT_MODULES_PATH . 'home/');
+    define('CLIENT_HOME_VIEW_PATH', CLIENT_MODULES_PATH . 'home/view/');
+    define('CLIENT_HOME_MODEL', CLIENT_MODULES_PATH . 'home/model/model/');

@@ -11,7 +11,7 @@ class controller_contact {
         // echo CLIENT_CONTACT_VIEW_PATH . "inc/top_page_contact.php";
         // die;
         require(CLIENT_CONTACT_VIEW_PATH . "inc/top_page_contact.php");
-        require(CLIENT_VIEW_PATH . "inc/header_pages.html");
+        require(CLIENT_VIEW_PATH . "inc/header.html");
         loadView(CLIENT_CONTACT_VIEW_PATH,'contact.html');
         require(CLIENT_VIEW_PATH . "inc/bottom_page.html");
     }

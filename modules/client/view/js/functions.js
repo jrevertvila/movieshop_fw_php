@@ -65,6 +65,11 @@ $(document).ready(function(){
         location.href=pretty("?module=contact&function=list_contact");
     });
 
+    $('#main-logo').on('click', function() {
+        console.log("aaaaaa");
+        location.href=pretty("?module=home");
+    });
+
     $('#header-register').on('click', function() {
         location.href="index.php?page=login";
     });

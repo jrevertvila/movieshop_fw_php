@@ -1,0 +1,18 @@
+{
+    "strings" : {
+        "Home": "Inici",
+        "Login": "Iniciar Sessió",
+        "About Us": "Sobre nosaltres",
+        "Films": "Pel·lícules",
+        "Services": "Serveis",
+        "Contact Us": "Contacta'ns",
+        "English": "Anglès",
+        "Client View":"Vista Client",
+        "Spanish": "Espanyol",
+        "Valencian": "Valencià",
+        "Languaje": "Llengua",
+        "List Films": "Llistar Pel·licules",
+        "New Film": "Nova pel·lícula",
+        "Control Panel": "Panell de control"
+    }
+}

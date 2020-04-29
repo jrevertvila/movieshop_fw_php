@@ -1,4 +1,5 @@
 <?php
+    require('autoload.php');
     require_once("paths.php");
     include(UTILS . "common.inc.php");
     include(UTILS . "mail.inc.php");
@@ -9,7 +10,7 @@
             $URI_module = $_GET['module'];
         } else {
             // $URI_module = 'home';
-            $URI_module = 'contact';
+            $URI_module = 'home';
             /////PREGUNTAR
             //echo'<script>window.location.href = "./home/list_home/";</script>';
             /////PREGUNTAR

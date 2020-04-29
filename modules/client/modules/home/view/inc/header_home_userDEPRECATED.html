@@ -1,0 +1,78 @@
+<div class="header">
+
+    <div class="header-main">
+        
+        <div class="header-logo">
+            
+            <span><a href="index.php">VideoShop</a></span>
+        </div>
+
+        <div class="header-pull-right">
+            <a id="shop" class="header-button" href="#" data-tr="Shop"></a>
+
+            <a id="contact-us" class="header-button" href="#" data-tr="Contact Us"></a>
+
+            <!-- <a id="header-login" class="header-button" href=# data-tr="Login">Iniciar Sesion</a> -->
+
+            <!-- <a id="header-register" class="header-button" href=# data-tr="Login"></a> -->
+
+            <!-- <img src="module/client/module/login/view/img/default_avatar.png" alt="user avatar" class="user-avatar-header"> -->
+            
+            <a id="header-cart" class="header-button cart-header-hover" href=#><span data-tr="Cart"></span><i class="fas fa-shopping-cart"></i><span class="num-items-cart-header"></span></a>
+
+            <div class="user-dropdown">
+                <button class="dropbtn"></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a id="header-profile" class="" href=# data-tr="Profile"></a>
+                    <a id="header-orders" class="" href=# data-tr="Orders"></a>
+                    <a id="header-logout" class="" href=# data-tr="Log out"></a>
+                </div>
+            </div>
+
+            <div class="lang-div">
+                    <select name="Language" id="lang" class="form-control form-control-sm">
+                        <option value="en" id="btn-en" data-tr="English">English</option>
+                        <option value="es" id="btn-es" data-tr="Spanish">Spanish</option>
+                        <option value="va" id="btn-va" data-tr="Valencian">Valencian</option>
+                    </select>
+            </div>
+            
+            <div class="cart-header-container cart-header-hover">
+                <div class="cart-header-info"></div>
+                <div class="cart-header-items"></div>
+                <div class="cart-header-summary"></div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+</div>
+<div class="sub-header">
+    <div class="form-all">
+        <form class="form-search">
+            <i class="fas fa-search icon-search"></i>
+    
+            <input type="text" name="search-bar" id="search-bar" placeholder="Write the name of the movie .." autocomplete="off">
+            |
+            <select id="genres" class="" name = 'genres[]' multiple="multiple"></select>
+            <!--<div class="dropdown">
+                <div id="search-genres" class="select-search"><span class="noselect">Genres</span></div>
+                <div id="search-genres-dropdown" class="select-dropdown">
+                    <div class="dropdown-wrapper"></div>
+                </div>
+            </div>-->
+            |
+            <!--<select name="search-orders" id="search-orders" class="select-search">
+                <option value="title" id="order-alph" data-tr="Order Alphabetically">Order Alphabetically</option>
+                <option value="release_date" id="order-date" data-tr="Order by Date">Order by Date</option>
+                <option value="score" id="order-rate" data-tr="Order by Rating">Order by Rating</option>
+            </select>
+            |-->
+            <a href="#" class="search-button">Search</a>
+        </form>
+        <div class="autocomplete-div"></div>
+    </div>
+    
+    
+</div>

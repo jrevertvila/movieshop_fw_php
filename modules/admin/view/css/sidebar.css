@@ -1,0 +1,181 @@
+#buttonSidebar:hover{
+	color: white;
+}
+
+/*.no-minibar {
+		display: none;
+}*/
+
+.dropdown-container {
+    height: 0px;
+    padding-left: 20px;
+	overflow: hidden;
+	width: 100%;
+    transition: 0.5s;
+}
+
+
+.verticalMenu{
+	text-decoration: none;
+	/*padding-left: 12px;
+	padding-right: 12px;*/
+	overflow: hidden;
+	position: sticky;
+	height: 100vh; /* 100% Full-height */
+	width: 230px; /* 0 width - change this with JavaScript */
+	/*position: fixed;  Stay in place */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	transition: 0.5s;
+	background-image: linear-gradient(to bottom right, #363b47, #4a5662);
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.verticalMenu_options{
+	padding-left: 15px;
+	width: 100%;
+}
+
+.button_VerticalMenu_canvas{
+	/* FALTA ALINEAR ITEMS VERTICALMENTE */
+	display: flex;
+	align-items: center;
+	color: rgb(231, 231, 231);
+	padding-left: 5px;
+	margin-bottom: 4px;
+	width: 100%;
+	height: 45px;
+	text-decoration: none;
+	border-bottom: 1px solid #404650;
+	border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border-radius: 7px 7px 7px 7px;
+}
+
+.button_VerticalMenu_canvas:hover{
+	transition: 0.2s;
+	background-color: #3bc7a3;
+}
+
+.big_icon {
+	margin-right: 6px;
+    font-size: 25px;
+}
+
+.button_VerticalMenu{
+	
+	color: rgb(75, 215, 215);
+	margin-left: 7px;
+	margin-top: 10px;
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #404650;
+	text-decoration: none;
+}
+
+.submenu_arrow{
+	margin-left: auto;
+	padding-right: 10px;
+}
+
+.buttonSelected{
+	background-color: #3bc7a3;
+}
+
+.button_VerticalMenu:hover{
+	text-decoration: none;
+	color: #3bc7a3;
+}
+
+
+.profile_VerticalMenu{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	transition: 0.5s;
+	width: 100%;
+	height: 30%;
+}
+
+.brand_VerticalMenu{
+	color: white;
+	font-size: 30px;
+	width: 100%;
+	height: 10%;
+}
+
+.img_profile_canvas{
+	border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    background-color: white;
+	margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.img_profile{
+	width: 100%;
+	height: 100%;
+}
+
+.profile_name{
+	font-size: 20px;
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .profile_VerticalMenu{ */
+	/*padding-bottom: 55px;*/
+	/* display: block;
+	text-align: center;
+	height: 25%;
+	width: 100%;
+	background-color: none; */
+	/*margin-bottom: 100px;*/
+/* } */
+
+/* .brand_VerticalMenu{
+	color: white;
+	font-size: 30px;
+	width: 100%;
+} */
+
+/*.profile_item{
+	display: block;
+}*/
+
+/* .img_profile_canvas{ */
+	/*margin-top: 24px;
+	margin-left: 10%;
+	margin-right: 10%;*/
+	/* border-radius: 50%;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+}
+
+.img_profile{
+	width: 100%;
+	height: 100%;
+}
+
+.profile_name{ */
+	/*margin-top: 5px;*/
+	/* font-size: 20px;
+	color: rgb(255, 255, 255);
+} */
