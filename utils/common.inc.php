@@ -2,7 +2,7 @@
 
 function loadModel($model_path, $model_name, $function, $arrArgument = '',$arrArgument2 = ''){
     $model = $model_path . $model_name . '.class.singleton.php';
-    
+
     if (file_exists($model)) {
 
         include_once($model);
@@ -13,15 +13,18 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '',$arrAr
         }
 
         $obj = $modelClass::getInstance();
-        // return $obj;
-        if (isset($arrArgument)){
-            if (isset($arrArgument2)) {
-                //return $obj->$function($arrArgument,$arrArgument2);
+        
+        if ($arrArgument !== ''){
+            
+            if ($arrArgument2 !== '') {
                 return call_user_func(array($obj, $function),$arrArgument,$arrArgument2);
             }
-            //return $obj->$function($arrArgument);
+
             return call_user_func(array($obj, $function),$arrArgument);
-        }   
+
+        }else{
+            return call_user_func(array($obj, $function));
+        }
         
     } else {
         throw new Exception();

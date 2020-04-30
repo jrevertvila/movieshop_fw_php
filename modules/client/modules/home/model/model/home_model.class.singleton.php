@@ -18,5 +18,15 @@ class home_model {
     public function rated_movies(){
         return $this->bll->select_top10_rated_movies();
     }
+    public function visited_movies(){
+        return $this->bll->select_top10_visited_movies();
+    }
+    public function visited_genres($offset){
+        return $this->bll->select_visited_genres($offset);
+    }
+    public function sum_visit_genre($id){
+        return $this->bll->sum_visit_genre($id);
+    }
+    
     
 }

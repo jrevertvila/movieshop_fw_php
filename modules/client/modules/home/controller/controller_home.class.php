@@ -23,13 +23,27 @@ class controller_home {
     
         // $included_files = get_included_files();
         // echo json_encode($included_files);
-        
+        // return "hola";
         $json = loadModel(CLIENT_HOME_MODEL, "home_model", "rated_movies");
         echo json_encode($json);
     }
 
     function visited_movies(){
-        
+
+        $json = loadModel(CLIENT_HOME_MODEL, "home_model", "visited_movies");
+        echo json_encode($json);        
+    }
+
+    function visited_genres(){
+
+        $json = loadModel(CLIENT_HOME_MODEL, "home_model", "visited_genres", $_POST['offset']);
+        echo json_encode($json);        
+    }
+
+    function sum_visit_genre(){
+
+        $json = loadModel(CLIENT_HOME_MODEL, "home_model", "sum_visit_genre", $_POST['id']);
+        echo json_encode($json);        
     }
 
 

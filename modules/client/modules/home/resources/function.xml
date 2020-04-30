@@ -9,4 +9,19 @@
         <name>rated_movies</name>
         <uri>rated_movies</uri>
     </function>
+
+    <function>
+        <name>visited_movies</name>
+        <uri>visited_movies</uri>
+    </function>
+
+    <function>
+        <name>visited_genres</name>
+        <uri>visited_genres</uri>
+    </function>
+
+    <function>
+        <name>sum_visit_genre</name>
+        <uri>sum_visit_genre</uri>
+    </function>
 </functions>
