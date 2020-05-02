@@ -44,3 +44,8 @@
     define('CLIENT_SHOP_PATH', CLIENT_MODULES_PATH . 'shop/');
     define('CLIENT_SHOP_VIEW_PATH', CLIENT_MODULES_PATH . 'shop/view/');
     define('CLIENT_SHOP_MODEL', CLIENT_MODULES_PATH . 'shop/model/model/');
+
+    //SEARCH
+    define('CLIENT_SEARCH_PATH', CLIENT_MODULES_PATH . 'search/');
+    define('CLIENT_SEARCH_VIEW_PATH', CLIENT_MODULES_PATH . 'search/view/');
+    define('CLIENT_SEARCH_MODEL', CLIENT_MODULES_PATH . 'search/model/model/');

@@ -32,7 +32,7 @@
 	<link href="/movieshop_fw_php/modules/client/modules/contact/view/css/header.css" rel="stylesheet" type="text/css"/>
     <link href="/movieshop_fw_php/modules/client/view/css/style.css" rel="stylesheet" type="text/css"/>
 	<link href="/movieshop_fw_php/modules/client/modules/contact/view/css/style_contact.css" rel="stylesheet" type="text/css"/>
-	<!-- <link href="modules/client/modules/home/view/css/search-bar.css" rel="stylesheet" type="text/css"/> -->
+	<link href="/movieshop_fw_php/modules/client/modules/home/view/css/search-bar.css" rel="stylesheet" type="text/css"/>
 	<!-- <link href="modules/client/modules/cart/view/css/cart_header.css" rel="stylesheet" type="text/css"/> -->
 
 	<script type="text/javascript" src="/movieshop_fw_php/view/js/main.js"></script>
@@ -42,7 +42,7 @@
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/contact/view/js/maps.js"></script>
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/translate.js"></script>
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/functions.js"></script>
-	<!-- <script type="text/javascript" src="modules/client/modules/search/controller/controller_search.js"></script> -->
+	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/search/view/js/controller_search.js"></script>
 
 </head>
 <body>

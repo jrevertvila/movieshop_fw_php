@@ -35,7 +35,7 @@
 	<script type="text/javascript" src="/movieshop_fw_php/view/js/main.js"></script>
 	<!-- <script type="text/javascript" src="module/client/module/cart/controller/controller_cart.js"></script> -->
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/apykeys.js"></script>
-	<!-- <script src="module/client/module/search/controller/controller_search.js"></script> -->
+	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/search/view/js/controller_search.js"></script>
 	<script src="/movieshop_fw_php/modules/client/modules/shop/view/js/controller_shop.js"></script>
 	<!-- <script type="text/javascript" src="module/client/module/login/model/activity.js"></script> -->
 	<script src="/movieshop_fw_php/modules/client/modules/shop/view/js/shop-cards.js"></script>
