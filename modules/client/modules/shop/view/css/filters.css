@@ -1,0 +1,64 @@
+.filters{
+    height: 70px;
+    background-color: rgb(59, 56, 56);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#filters-shop{
+    height: auto;
+    background-color: rgb(41, 40, 40);
+    width: 22%;
+    padding: 0px 20px;
+    font-weight: 600;
+}
+
+#filters-shop hr{
+    border-color: rgb(248, 211, 0);
+}
+
+.title-filters{
+    color: rgb(248, 211, 0);
+    width: 100%;
+    text-align: center;
+}
+
+.title-section{
+    font-size: 20px;
+    color: rgb(248, 211, 0);
+    margin-bottom: 15px;
+}
+
+.sub-title-filter{
+    color: rgb(248, 211, 0);
+}
+
+.item-filter{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 12px;
+}
+
+.genre-filter{
+    margin-right: 5px;
+}
+
+.label-genre{
+    display: flex;
+    align-items: center;
+    color: rgb(248, 211, 0);
+}
+
+.search-bar-filter{
+    width: 80%;
+}
+
+.button-search-filter{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    width: 20%;
+    background-color: rgb(248, 211, 0);
+}

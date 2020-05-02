@@ -6,7 +6,7 @@
 class controller_home {
 		
     function __construct(){
-        $_SESSION['module'] = "contact";
+        $_SESSION['module'] = "home";
     }
 
     function list_home(){//carga la vista(HTML JS)
@@ -48,50 +48,3 @@ class controller_home {
 
 
 }
-
-
-
-// switch($_GET['op']){
-
-//     case 'rated-movies';
-
-//         $movies = getTop10Films();
-
-//         echo json_encode($movies);
-//         exit;
-
-//     break;
-
-//     case 'visited-movies';
-
-//         $movies = getTop10VisitedFilms();
-
-//         echo json_encode($movies);
-//         exit;
-
-//     break;
-
-//     case 'sumVisitGenre';
-//         sumVisitGenre($_GET['id']);
-//     break;
-
-//     case 'get_genres_movies';
-//     //echo json_encode($movies);
-    
-//        $movies = getSixGenres($_GET['offset']);
-//        echo json_encode($movies);
-
-//        exit;
-        
-
-//     break;
-
-//     case 'usertype';
-
-//         changeUsertype();
-//         echo json_encode("true");
-//         exit;
-
-//     break;
-
-// }

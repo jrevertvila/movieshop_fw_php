@@ -62,7 +62,7 @@ $(document).ready(function(){
     );
     $('#contact-us').on('click', function() {
         console.log("aaaaaa");
-        location.href=pretty("?module=contact&function=list_contact");
+        location.href=pretty("?module=contact");
     });
 
     $('#main-logo').on('click', function() {
@@ -82,7 +82,7 @@ $(document).ready(function(){
         localStorage.setItem("shop-genre",null);
         localStorage.setItem("movie-details",null);
         localStorage.setItem("text-movie",null);
-        location.href="index.php?page=shop";
+        location.href=pretty("?module=shop");
     });
 
     $('#header-logout').on('click', function() {

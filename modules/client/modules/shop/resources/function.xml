@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>list_shop</name>
+        <uri>list_shop</uri>
+    </function>
+
+    <function>
+        <name>getMovies</name>
+        <uri>getMovies</uri>
+    </function>
+
+    <function>
+        <name>getMoviesFiltered</name>
+        <uri>getMoviesFiltered</uri>
+    </function>
+
+    <function>
+        <name>getMoviesByTitle</name>
+        <uri>getMoviesByTitle</uri>
+    </function>
+
+    <function>
+        <name>checkFavUser</name>
+        <uri>checkFavUser</uri>
+    </function>
+
+    <function>
+        <name>removeFav</name>
+        <uri>removeFav</uri>
+    </function>
+
+    <function>
+        <name>addFav</name>
+        <uri>addFav</uri>
+    </function>
+
+    <function>
+        <name>countAllMovies</name>
+        <uri>countAllMovies</uri>
+    </function>
+
+    <function>
+        <name>getMoviesFilteredCount</name>
+        <uri>getMoviesFilteredCount</uri>
+    </function>
+
+    <function>
+        <name>sumVisitGenre</name>
+        <uri>sumVisitGenre</uri>
+    </function>
+
+    <function>
+        <name>getGenresFilters</name>
+        <uri>getGenresFilters</uri>
+    </function>
+
+    <function>
+        <name>sumVisit</name>
+        <uri>sumVisit</uri>
+    </function>
+
+    <function>
+        <name>getMovieById</name>
+        <uri>getMovieById</uri>
+    </function>
+
+</functions>

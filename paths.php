@@ -39,3 +39,8 @@
     define('CLIENT_HOME_PATH', CLIENT_MODULES_PATH . 'home/');
     define('CLIENT_HOME_VIEW_PATH', CLIENT_MODULES_PATH . 'home/view/');
     define('CLIENT_HOME_MODEL', CLIENT_MODULES_PATH . 'home/model/model/');
+
+    //SHOP
+    define('CLIENT_SHOP_PATH', CLIENT_MODULES_PATH . 'shop/');
+    define('CLIENT_SHOP_VIEW_PATH', CLIENT_MODULES_PATH . 'shop/view/');
+    define('CLIENT_SHOP_MODEL', CLIENT_MODULES_PATH . 'shop/model/model/');
