@@ -35,7 +35,7 @@ function loadRatedMovies(){
                 localStorage.setItem('text-movie',null);
                 localStorage.setItem('shop-genre',null);
                 localStorage.setItem('movie-details',id);
-                location.href="index.php?page=shop";
+                location.href= pretty("?module=shop");
             });
                          
         },
@@ -195,7 +195,7 @@ function loadVisitedMovies(){
             $('.movie-carousel').on('click', function() {
                 id = $(this).attr('id');
                 localStorage.setItem('movie-details',id);
-                location.href="index.php?page=shop";
+                location.href=pretty("?module=shop");
             });
                          
         },
