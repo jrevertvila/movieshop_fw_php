@@ -40,9 +40,13 @@ function loadView($path_view = '', $htmlFile = '', $arrPassValue = '') {
             $arrData = $arrPassValue;
         include_once($view_path);
     } else {
-        /*$result = response_code($path_view);
-        $arrData = $result;
-        require_once VIEW_PATH_INC_ERROR . "error.php";*/
-        //die();
+        loadError();
     }
+}
+
+function loadError(){
+    require(CLIENT_VIEW_PATH . "inc/top_page_error404.html");
+    require(CLIENT_VIEW_PATH . "inc/header.html");
+    include_once(CLIENT_VIEW_PATH ."inc/error404.html");
+    require(CLIENT_VIEW_PATH . "inc/bottom_page.html");
 }

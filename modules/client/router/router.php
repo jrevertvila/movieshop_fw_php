@@ -40,11 +40,7 @@
                     $obj = new $controllerClass;
                     //var_dump($obj);
                 } else {
-                    //die($URI_module . ' - Controlador no encontrado');
-                    // require_once(VIEW_PATH_INC . "header.php");
-                    // require_once(VIEW_PATH_INC . "menu.php");
-                    // require_once(VIEW_PATH_INC . "404.php");
-                    // require_once(VIEW_PATH_INC . "footer.html");
+                    loadError();
                 }
                 
                 if ($URI_function == 'default'){ //Si UriFunction es default, asigna la funcion por defecto establecida en XML.
@@ -56,10 +52,7 @@
             }
         }
         if (!$exist) {
-            require_once(VIEW_PATH_INC . "header.php");
-            require_once(VIEW_PATH_INC . "menu.php");
-            require_once(VIEW_PATH_INC . "404.php");
-            require_once(VIEW_PATH_INC . "footer.html");
+            loadError();
         }
     }
 
@@ -82,10 +75,7 @@
         //echo "<br>";
 
         if (!$exist) {
-            require_once(VIEW_PATH_INC . "header.php");
-            require_once(VIEW_PATH_INC . "menu.php");
-            require_once(VIEW_PATH_INC . "404.php");
-            require_once(VIEW_PATH_INC . "footer.html");
+            loadError();
         } else {
             // echo CLIENT_MODULES_PATH;
             // var_dump($event);
