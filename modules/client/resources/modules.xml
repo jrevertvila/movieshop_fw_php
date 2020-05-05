@@ -19,4 +19,9 @@
         <name>search</name>
         <uri>search</uri>
     </module>
+    <module>
+        <name>login</name>
+        <uri>login</uri>
+        <default_function>list_login</default_function>
+    </module>
 </modules>

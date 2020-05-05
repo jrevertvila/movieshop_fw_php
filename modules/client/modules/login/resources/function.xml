@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>list_login</name>
+        <uri>list_login</uri>
+    </function>
+
+</functions>

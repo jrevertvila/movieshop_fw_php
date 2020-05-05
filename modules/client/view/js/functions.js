@@ -71,7 +71,7 @@ $(document).ready(function(){
     });
 
     $('#header-register').on('click', function() {
-        location.href="index.php?page=login";
+        location.href=pretty("?module=login");
     });
 
     $('#header-cart').on('click', function() {

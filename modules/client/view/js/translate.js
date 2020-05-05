@@ -11,7 +11,7 @@ function changeLang(lang) {
         
         $.ajax({ 
             type: 'POST', 
-            url: 'module/client/view/json/'+lang+'.json',
+            url: 'modules/client/view/json/'+lang+'.json',
             dataType: 'json',
             success: function (data) { 
 

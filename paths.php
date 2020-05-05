@@ -49,3 +49,9 @@
     define('CLIENT_SEARCH_PATH', CLIENT_MODULES_PATH . 'search/');
     define('CLIENT_SEARCH_VIEW_PATH', CLIENT_MODULES_PATH . 'search/view/');
     define('CLIENT_SEARCH_MODEL', CLIENT_MODULES_PATH . 'search/model/model/');
+
+    //LOGIN
+    define('CLIENT_LOGIN_PATH', CLIENT_MODULES_PATH . 'login/');
+    define('CLIENT_LOGIN_VIEW_PATH', CLIENT_MODULES_PATH . 'login/view/');
+    define('CLIENT_LOGIN_MODEL', CLIENT_MODULES_PATH . 'login/model/model/');
+    define('CLIENT_LOGIN_UTILS', CLIENT_MODULES_PATH . 'login/utils/');

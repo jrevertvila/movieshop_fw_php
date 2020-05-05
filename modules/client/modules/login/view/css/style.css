@@ -1,0 +1,97 @@
+
+main{
+    padding-top: 150px;
+}
+
+.login-canvas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.form-login{
+    border: 1px solid rgb(155, 155, 155);
+    background-color: rgb(250, 250, 250);
+    width: 460px;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.title-form{
+    margin-bottom: 12px;
+}
+
+.item-form-login{
+    width: 100%;
+    height: 57px;
+    background-color: white;
+    outline: none;
+    padding: 15px;
+}
+
+.item-form-register{
+    border: 1px solid rgb(160, 160, 160);
+    margin-top: 15px;
+    border-radius: 8px; 
+    width: 100%;
+    height: 57px;
+    background-color: white;
+    outline: none;
+    padding: 15px;
+}
+
+#email-user{
+    border: 1px solid rgb(160, 160, 160);
+    border-bottom: 0px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    
+}
+
+#passwd-user{
+    border: 1px solid rgb(160, 160, 160);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.login-button{
+    margin-top: 15px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #b41052;
+    background-size: 200% 200% !important;
+    background-image: radial-gradient(circle at center, #d91160 0%, #E61E4D 27.5%, #E31C5F 40%, #D70466 57.5%, #BD1E59 75%, #BD1E59 100% ) !important;
+    border-radius: 8px;
+}
+
+.div-left{
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 500;
+    justify-content: left;
+}
+
+.div-left a{
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.msg_error{
+    color: rgb(207, 0, 0);
+    margin-top: 6px;
+    margin-bottom: -2px;
+    font-size: 15px;
+    width: 100%;
+    text-align: left;
+}
