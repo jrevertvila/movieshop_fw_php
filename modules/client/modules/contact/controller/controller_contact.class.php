@@ -15,13 +15,36 @@ class controller_contact {
     }
 
     function send_contact(){//carga la vista(HTML JS)
+        $name = $_POST['name-contact'];
+        $email = $_POST['email-contact'];
+        $tlf = $_POST['tlf-contact'];
+        $location = $_POST['location-contact'];
+        $issue = $_POST['issue-contact'];
+
+        $html = <<<EOD
+        <html>
+        <body>
+            <strong>Contact information:</strong>
+            <br><br>
+            <span><strong>Name:</strong> $name</span><br>
+            <span><strong>Email:</strong> $email</span><br>
+            <span><strong>Tlf:</strong> $tlf</span><br>
+            <span><strong>Location:</strong> $location</span><br>
+            <br><br>
+            <strong>Mensaje:</strong>
+            <p>$issue</p>
+            <br><br>
+            <span>Puedes visitar nuestra web en: <a href="http://localhost/movieshop_fw_php/">www.movieshop.com</a></span>
+            <br>
+            <p>Sent by Movieshop</p>
+        </body>
+        </html>
+        EOD;
+
         $data = array(
             'type' => 'contact',
-            'name' => $_POST['name-contact'],
             'email' => $_POST['email-contact'],
-            'tlf' => $_POST['tlf-contact'],
-            'location' => $_POST['location-contact'],
-            'issue' => $_POST['issue-contact']
+            'html' => $html
         );
         
         $result = send_email($data);

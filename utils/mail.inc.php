@@ -1,6 +1,6 @@
 <?php
     function send_email($data) {
-        $html = '';
+        $html = $data['html'];
         $subject = '';
         $body = '';
         $ruta = '';
@@ -8,31 +8,12 @@
         
         switch ($data['type']) {    
             case 'contact':
-                $ruta = '<a href=' . 'http://localhost/movieshop_fw_php/'. '></a>';
-                $body = 'Puedes visitar nuestra web en: <a href="http://localhost/movieshop_fw_php/">www.movieshop.com</a>';
+                $subject = "Contact Email MovieShop";
+            break;
+            case 'register':
+                $subject = "Validate your account";
             break;
         }
-        
-        $html .= "<html>";
-        $html .= "<body>";
-            $html .= "<strong>Contact information:</strong>";
-            $html .= "<br><br>";
-            $html .= "<span><strong>Name:</strong> ".$data['name']."</span><br>";
-            $html .= "<span><strong>Email:</strong> ".$data['email']."</span><br>";
-            $html .= "<span><strong>Tlf:</strong> ".$data['tlf']."</span><br>";
-            $html .= "<span><strong>Location:</strong> ".$data['location']."</span><br>";
-           $html .= "<br><br>";
-           $html .= "<strong>Mensaje:</strong>";
-           $html .= "<br>";
-           $html .= $data['issue'];
-           $html .= "<br><br>";
-	       $html .= $body;
-	       $html .= "<br>";
-	       $html .= "<p>Sent by Movieshop</p>";
-		$html .= "</body>";
-		$html .= "</html>";
-
-        //set_error_handler('ErrorHandler');
         try{
             if ($data['type'] === 'admin'){
                 $addressTO = 'jrevertvila@gmail.com';
@@ -52,7 +33,7 @@
         return true;
     }
 
-    function send_mailgun($from, $email, $subject, $html){
+    function send_mailgun($from, $emailTO, $subject, $html){
 		include UTILS.'apikeys.php';
     	$config = array();
     	$config['api_key'] = $APIKEY_MAILGUN; //API Key
@@ -60,7 +41,7 @@
 
     	$message = array();
     	$message['from'] = $from;
-    	$message['to'] = $email;
+    	$message['to'] = $emailTO;
     	$message['h:Reply-To'] = "movieshop@gmail.com";
     	$message['subject'] = $subject;
     	$message['html'] = $html;

@@ -28,20 +28,37 @@ function validateLoginUser(){
 }
 
 function validateUser(){
-    if (findByUsername($_POST['username'])){
+    $userArr = array('userv' => $_POST['username'],
+                    'emailv' => $_POST['email-user-sign']
+                );
+    if (loadModel(CLIENT_LOGIN_MODEL, "login_model", "findByUsernameLocal", $userArr)){
         return $return=array('result'=>false,'errorUsername'=>'The username already exists');
     }
-
-    if (findByEmail($_POST['email-user-sign'])){
+    
+    if (loadModel(CLIENT_LOGIN_MODEL, "login_model", "findByEmailLocal", $userArr)){
         return $return=array('result'=>false,'errorEmail'=>'The email already exists');
     }
+    
     $result = array(
         'username' => $_POST['username'],
 
         'email' => $_POST['email-user-sign'],
 
-        'password' => $_POST['passwd-user'],
+        'password' => password_hash($_POST['passwd-user'], PASSWORD_DEFAULT),
+
+        'token_check' => generate_Token_secure(20),
+
+        'token_recover' => generate_Token_secure(20),
+
+        'account_type' => 'local'
 
     );
     return $return=array('result'=>true,'data'=>$result);
+}
+
+function generate_Token_secure($longitud){
+    if ($longitud < 4) {
+        $longitud = 4;
+    }
+    return bin2hex(openssl_random_pseudo_bytes(($longitud - ($longitud % 2)) / 2));
 }

@@ -228,16 +228,24 @@ function validateRegister(){
     }else{
         var data = $("#formRegister").serialize();
         ajaxCreateUser(data).then(function(data){
+            console.log(data);
             var result = JSON.parse(data);
         
             if (result.result){
-                location.reload();
+                
+                toastr.success('Account created successfully! Check your mail inbox!!');
+                
+                setTimeout(function(){
+                    location.reload();
+                  },2000);
+                
             }else{
                 if (result.errorUsername){
                     $('#e_username').html(result.errorUsername);
                 }else{
                     $('#e_email').html(result.errorEmail);
                 }
+                toastr.error('Something went wrong :/ Wait or try again.');
                 return 0;
             }
         });
@@ -328,7 +336,7 @@ var ajaxCreateUser = function(data) {
         $.ajax({
             data: data,
             type: 'POST',
-            url: '/movieshop/module/client/module/login/controller/controller_login.php?op=createUser',
+            url: pretty("?module=login&function=createUser"),
         })
         .done(function(data){
             resolve(data);

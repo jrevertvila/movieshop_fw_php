@@ -13,28 +13,39 @@ class login_dao {
         return self::$_instance;
     }
 
-    public function select_data_rated_movies($db) {
-        $sql = "SELECT * FROM films ORDER BY score DESC LIMIT 10";
-        $stmt = $db->ejecutar($sql);
-        return $db->listar($stmt);
-    }
-
-    public function select_data_visited_movies($db) {
-        $sql = "SELECT * FROM films ORDER BY visits DESC LIMIT 10";
-        $stmt = $db->ejecutar($sql);
-        return $db->listar($stmt);
-    }
-
-    public function select_data_visited_genres($db,$offset) {
-        // return $offset;
-        $sql = "SELECT * FROM genres ORDER BY visits DESC LIMIT 3 OFFSET " .$offset;
-        $stmt = $db->ejecutar($sql);
-        return $db->listar($stmt);
-    }
-
-    public function sum_visit_genre($db,$id) {
-        $sql = "UPDATE genres SET visits = visits + 1 WHERE id = ".$id;
+    function create_new_user($db,$data){
+        $sql = 'INSERT INTO ' . 'users' . ' (id, username, password, email, avatar, token_check, token_recover, type, account_type) VALUES ("'.$data['username'].'","'.$data['username'].'", "'.$data['password'].'", "'.$data['email'].'", "modules/client/modules/login/view/img/default_avatar.png","'.$data['token_check'].'","'.$data['token_recover'].'", "client", "local")';
         return $stmt = $db->ejecutar($sql);
     }
+
+    function active_user($db,$data){
+        $newToken = generate_Token_secure(20);
+        $sql = 'UPDATE users SET active = 1,token_check = "'.$newToken.'" WHERE token_check = "'.$data['token'].'"';
+        return $stmt = $db->ejecutar($sql);
+    }
+
+    public function findByUsernameLocal($db,$data) {
+        $sql = 'SELECT * FROM users WHERE username = "'.$data['userv'].'"';
+        $stmt = $db->ejecutar($sql);
+    
+        if($db->listar($stmt) == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public function findByEmailLocal($db,$data) {
+        $sql = 'SELECT * FROM users WHERE email = "'.$data['emailv'].'"';
+        $stmt = $db->ejecutar($sql);
+    
+        if($db->listar($stmt) == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    
 
 }

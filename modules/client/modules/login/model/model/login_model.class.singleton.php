@@ -5,7 +5,7 @@ class login_model {
 
     private function __construct() {
         // return "hola MODEL";
-        $this->bll = home_bll::getInstance();
+        $this->bll = login_bll::getInstance();
     }
 
     public static function getInstance() {
@@ -15,18 +15,19 @@ class login_model {
         return self::$_instance;
     }
 
-    public function rated_movies(){
-        return $this->bll->select_top10_rated_movies();
+    public function findByUsernameLocal($data){
+        return $this->bll->findByUsernameLocal($data);
     }
-    public function visited_movies(){
-        return $this->bll->select_top10_visited_movies();
+    public function findByEmailLocal($data){
+        return $this->bll->findByEmailLocal($data);
     }
-    public function visited_genres($offset){
-        return $this->bll->select_visited_genres($offset);
+    public function create_new_user($data){
+        return $this->bll->create_new_user($data);
     }
-    public function sum_visit_genre($id){
-        return $this->bll->sum_visit_genre($id);
+    public function active_user($data){
+        return $this->bll->active_user($data);
     }
+    
     
     
 }

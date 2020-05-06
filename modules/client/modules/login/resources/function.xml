@@ -5,4 +5,14 @@
         <uri>list_login</uri>
     </function>
 
+    <function>
+        <name>createUser</name>
+        <uri>createUser</uri>
+    </function>
+
+    <function>
+        <name>active_user</name>
+        <uri>active_user</uri>
+    </function>
+
 </functions>

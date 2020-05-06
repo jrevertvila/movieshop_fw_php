@@ -21,6 +21,10 @@
 	<link rel="stylesheet" href="/movieshop_fw_php/modules/client/view/libraries/multiple-select-1.5.2/dist/multiple-select.min.css">
 	<script src="/movieshop_fw_php/modules/client/view/libraries/multiple-select-1.5.2/dist/multiple-select.min.js"></script>
 
+	<!-- Toastr -->
+	<link rel="stylesheet" href="/movieshop_fw_php/modules/client/view/libraries/toastr/build/toastr.css">
+	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/libraries/toastr/toastr.js"></script>
+
 	<!-- Local imports -->
 	<link href="/movieshop_fw_php/modules/client/view/css/style.css" rel="stylesheet" type="text/css"/>
 	<link href="/movieshop_fw_php/modules/client/modules/home/view/css/search-bar.css" rel="stylesheet" type="text/css"/>
