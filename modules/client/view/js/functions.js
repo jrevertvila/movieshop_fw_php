@@ -29,6 +29,26 @@ $(document).ready(function(){
             $(this).css({"border-bottom": "0px solid white"})
         }
     );*/
+
+    if (localStorage.getItem('authToken')===null){
+        
+        $('#contact-us').after(
+            '<a id="header-register" class="header-button" href="#" data-tr="Login"></a>'
+        );
+    }else{
+        $('#header-cart').after(
+            '<div class="user-dropdown">'+
+                '<button class="dropbtn"></button>'+
+                '<div id="myDropdown" class="dropdown-content">'+
+                    '<a id="header-profile" class="" href=# data-tr="Profile"></a>'+
+                    '<a id="header-orders" class="" href=# data-tr="Orders"></a>'+
+                    '<a id="header-logout" class="" href=# data-tr="Log out"></a>'+
+                '</div>'+
+            '</div>'
+        );
+    }
+
+
     $('.dropbtn').css('background-image', 'url(' + localStorage.getItem('user_avatar') + ')');
 
     $('.user-dropdown').on('click', function() {
@@ -86,35 +106,11 @@ $(document).ready(function(){
     });
 
     $('#header-logout').on('click', function() {
-        console.log("logout");
-        $.getScript( "module/client/module/login/controller/controller_login.js", function() {
+        
+        $.getScript( "modules/client/modules/login/view/js/controller_login.js", function() {
             console.log("load"); // Data returned
             logout();
-          });
-        
-        // $.ajax({
-        //     type: 'GET',
-        //     url: '/movieshop/module/client/module/login/controller/controller_login.php?op=logout',
-        //     dataType: 'json',
-        //     data:{},
-        //     success: function (data) {
-        //         if(data=='logout'){
-        //             localStorage.removeItem('user_id');
-        //             localStorage.removeItem('user_avatar');
-        //             localStorage.removeItem('user_type');
-        //             localStorage.removeItem('cart-items');
-        //             location.href="index.php";
-        //         }else{
-        //             location.href="index.php?page=503";
-        //             console.log('error');
-        //         }
-                
-        //     },
-        //     error: function(){
-        //         location.href="index.php?page=503";
-        //         console.log('error');
-        //     }
-        // });
+        });
         
     });
 

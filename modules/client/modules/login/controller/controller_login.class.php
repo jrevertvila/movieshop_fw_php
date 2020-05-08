@@ -15,6 +15,25 @@ class controller_login {
         require(CLIENT_VIEW_PATH . "inc/bottom_page.html");
     }
 
+    function loginUser(){
+        $result = validateLoginUser();
+        
+        if ($result['result']){
+            $dataToken = $result['data']['id'].':'.$result['data']['type'];
+            $token = encode_token($dataToken);
+            $return = array(
+                "result" => true,
+                "token" => $token,
+                "avatar" => $result['data']['avatar']
+            );
+            echo json_encode($return);
+            exit;
+        }else{
+            echo json_encode($result);
+            exit;
+        }
+    }
+
     function createUser(){
         $result = validateUser();
         if ($result['result']){
@@ -54,12 +73,29 @@ class controller_login {
         }
     }
 
+    function addUserGoogle(){
+        return "hola";
+    }
+
     function active_user(){
         if (isset($_GET['param'])) {
             $data = array( 'token'=>$_GET['param'] );;
             loadModel(CLIENT_LOGIN_MODEL, "login_model", "active_user", $data);
         }
         self::list_login();
+    }
+
+    function recover_password(){
+        require(CLIENT_LOGIN_VIEW_PATH . "inc/top_page_login.php");
+        require(CLIENT_VIEW_PATH . "inc/header.html");
+        loadView(CLIENT_LOGIN_VIEW_PATH,'recover_password.html');
+        require(CLIENT_VIEW_PATH . "inc/bottom_page.html");
+    }
+
+    function test(){
+        $token = decode_token($_POST['token']);
+            
+        echo json_encode($token);
     }
 
 

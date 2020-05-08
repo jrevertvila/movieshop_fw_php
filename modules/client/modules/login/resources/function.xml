@@ -15,4 +15,19 @@
         <uri>active_user</uri>
     </function>
 
+    <function>
+        <name>loginUser</name>
+        <uri>loginUser</uri>
+    </function>
+
+    <function>
+        <name>test</name>
+        <uri>test</uri>
+    </function>
+
+    <function>
+        <name>recover_password</name>
+        <uri>recover_password</uri>
+    </function>
+
 </functions>

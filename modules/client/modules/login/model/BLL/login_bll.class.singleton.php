@@ -30,5 +30,11 @@
 		public function active_user($data){
 			return $this->dao->active_user($this->db,$data);
 		}
+		public function verifyPassword($data){
+			return $this->dao->verifyPassword($this->db,$data);
+		}
+		public function userDataLocal($data){
+			return $this->dao->userDataLocal($this->db,$data);
+		}
 
 	}

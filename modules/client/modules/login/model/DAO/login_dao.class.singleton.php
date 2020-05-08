@@ -25,7 +25,7 @@ class login_dao {
     }
 
     public function findByUsernameLocal($db,$data) {
-        $sql = 'SELECT * FROM users WHERE username = "'.$data['userv'].'"';
+        $sql = 'SELECT * FROM users WHERE account_type = "local" AND username = "'.$data['userv'].'"';
         $stmt = $db->ejecutar($sql);
     
         if($db->listar($stmt) == null){
@@ -36,7 +36,7 @@ class login_dao {
     }
 
     public function findByEmailLocal($db,$data) {
-        $sql = 'SELECT * FROM users WHERE email = "'.$data['emailv'].'"';
+        $sql = 'SELECT * FROM users WHERE account_type = "local" AND email = "'.$data['emailv'].'"';
         $stmt = $db->ejecutar($sql);
     
         if($db->listar($stmt) == null){
@@ -44,6 +44,21 @@ class login_dao {
         }else{
             return true;
         }
+    }
+
+    public function verifyPassword($db,$data) {
+        $sql = 'SELECT password FROM users WHERE account_type = "local" AND email = "'.$data['emailv'].'"';
+        $stmt = $db->ejecutar($sql);
+        $pass = $db->listar($stmt);
+    
+        return password_verify($data['passv'],$pass[0]['password']);
+    }
+
+    public function userDataLocal($db,$data) {
+        $sql = 'SELECT * FROM users WHERE account_type = "local" AND email = "'.$data['emailv'].'"';
+        $stmt = $db->ejecutar($sql);
+        return $pass = $db->listar($stmt);
+    
     }
 
     

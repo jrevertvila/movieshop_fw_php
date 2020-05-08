@@ -19,12 +19,20 @@ function loadLogin(){
 
         '<input name="login" class="login-button" id="login-button" type="button" value="Log In"/>'+
         '<div class="div-left">'+
-            '<a href="" class="forgot-passwd" data-tr="Forgot password?"></a>'+
+            '<a href="#" class="forgot-passwd" data-tr="Forgot password?"></a>'+
             '<div>'+
                 '<span data-tr="Don’t have an account?"></span>'+
                 '<a href="#" data-tr="Sign up" style="margin-left: 5px;" class="open-register"></a>'+
             '</div>'+
         '</div>'+
+        '<div class="social-btns">'+
+            '<a href="#" class="google-btn-signin"><img alt="google-btn" class="google-btn-signin-img" src="modules/client/modules/login/view/img/btn_google_signin.png"></a>'+
+            '<a class="ghub-btn-signin btn btn-block btn-social btn-github">'+
+                '<i class="fab fa-github"></i> Sign in with GitHub'+
+            '</a>'+
+        '</div>'+
+        '<a href="#" class="checkLoggedGoogle">CHECK LOGGED</a>'+
+        '<a href="#" class="logoutGoogle">LOG OUT</a>'+ 
     '</form>'
     );
     changeLang();
@@ -34,6 +42,10 @@ function loadLogin(){
 
     $('#login-button').on('click',function(){
         validateLogin();
+    });
+
+    $('.forgot-passwd').on('click',function(){
+        location.href=pretty("?module=login&function=recover_password");
     });
 }
 
@@ -60,6 +72,12 @@ function loadRegister(){
                     '<span data-tr="Already have an account?"></span>'+
                     '<a href="" data-tr="Log in" style="margin-left: 5px;" class="open-login"></a>'+
                 '</div>'+
+            '</div>'+
+            '<div class="social-btns">'+
+                '<a href="#" class="google-btn-signin"><img alt="google-btn" class="google-btn-signin-img" src="modules/client/modules/login/view/img/btn_google_signin.png"></a>'+
+                '<a class="ghub-btn-signin btn btn-block btn-social btn-github">'+
+                    '<i class="fab fa-github"></i> Sign in with GitHub'+
+                '</a>'+
             '</div>'+
         '</form>'
     );
@@ -94,25 +112,24 @@ function validateLogin(){
         return 0;
     }else{
         var data = $("#formLogin").serialize();
-        console.log(data);
         ajaxLoginUser(data).then(function(data){
             var result = JSON.parse(data);
-            console.log(data);
             console.log(result);
             if (result.result){
-                //location.reload();
-                console.log("LOGGED");
-                console.log(result.data);
-                setLocalSUserInfo(result.data);
-                // if (localStorage.getItem('shop-redirect') === null || localStorage.getItem('shop-redirect')==""){
-                //     location.href="index.php";
-                //     $('#e_email_login').html("");
-                //     $('#e_passwd_login').html("");
-                // }else{
-                //     location.href="index.php?page=shop";
-                //     $('#e_email_login').html("");
-                //     $('#e_passwd_login').html("");
-                // }
+                console.log(result);
+                localStorage.setItem('authToken',result.token);
+                localStorage.setItem('user_avatar',result.avatar);
+                // setCartLS(data.id);
+                
+                if (localStorage.getItem('shop-redirect') === null || localStorage.getItem('shop-redirect')==""){
+                    location.href=pretty("?module=home");
+                    $('#e_email_login').html("");
+                    $('#e_passwd_login').html("");
+                }else{
+                    location.href=pretty("?module=shop");
+                    $('#e_email_login').html("");
+                    $('#e_passwd_login').html("");
+                }
                 
             }else{
                 if (result.errorEmail){
@@ -129,13 +146,13 @@ function validateLogin(){
     }
 }
 
-function setLocalSUserInfo(data){
-    localStorage.setItem('user_id',data.id);
-    localStorage.setItem('user_avatar',data.avatar);
-    localStorage.setItem('user_type',data.type);
-    setCartLS(data.id);
-    console.log(data.email);
-}
+// function setLocalSUserInfo(data){
+//     localStorage.setItem('user_id',data.id);
+//     localStorage.setItem('user_avatar',data.avatar);
+//     localStorage.setItem('user_type',data.type);
+//     setCartLS(data.id);
+//     console.log(data.email);
+// }
 
 function setCartLS(id_user){
     $.ajax({
@@ -283,34 +300,41 @@ function itemsLSToArray(){
 
 
 function logout(){
-    $.ajax({
-        type: 'GET',
-        url: '/movieshop/module/client/module/login/controller/controller_login.php?op=logout',
-        dataType: 'json',
-        data:{},
-        success: function (data) {
-            if(data=='logout'){
-                if (localStorage.getItem('cart-items') !== null || localStorage.getItem('cart-items') != ""){
-                    console.log("entra en if: logout");
-                    var items = itemsLSToArray();
-                    ajaxSaveCart(items);
-                }
-                localStorage.removeItem('user_id');
-                localStorage.removeItem('user_avatar');
-                localStorage.removeItem('user_type');
-                localStorage.removeItem('cart-items');
-                location.href="index.php";
-            }else{
-                location.href="index.php?page=503";
-                console.log('error');
-            }
+
+    localStorage.removeItem('user_avatar');
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('cart-items');
+    location.href=pretty('?module=home');
+
+
+    // $.ajax({
+    //     type: 'GET',
+    //     url: '/movieshop/module/client/module/login/controller/controller_login.php?op=logout',
+    //     dataType: 'json',
+    //     data:{},
+    //     success: function (data) {
+    //         if(data=='logout'){
+    //             if (localStorage.getItem('cart-items') !== null || localStorage.getItem('cart-items') != ""){
+    //                 console.log("entra en if: logout");
+    //                 // var items = itemsLSToArray();
+    //                 // ajaxSaveCart(items);
+    //             }
+                
+    //             localStorage.removeItem('user_avatar');
+    //             localStorage.removeItem('authToken');
+    //             localStorage.removeItem('cart-items');
+    //             location.href="index.php";
+    //         }else{
+    //             location.href="index.php?page=503";
+    //             console.log('error');
+    //         }
             
-        },
-        error: function(){
-            location.href="index.php?page=503";
-            console.log('error');
-        }
-    });
+    //     },
+    //     error: function(){
+    //         location.href="index.php?page=503";
+    //         console.log('error');
+    //     }
+    // });
 }
 
 var ajaxSaveCart = function(data) {
@@ -353,7 +377,7 @@ var ajaxLoginUser = function(data) {
         $.ajax({
             data: data,
             type: 'POST',
-            url: '/movieshop/module/client/module/login/controller/controller_login.php?op=loginUser',
+            url: pretty("?module=login&function=loginUser"),
         })
         .done(function(data){
             resolve(data);

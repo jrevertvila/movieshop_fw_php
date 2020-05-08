@@ -40,8 +40,8 @@
 	<!-- <script type="text/javascript" src="modules/client/modules/cart/controller/controller_cart.js"></script> -->
 	<!-- <script type="text/javascript" src="modules/client/modules/login/model/activity.js"></script> -->
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/contact/view/js/maps.js"></script>
-	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/translate.js"></script>
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/functions.js"></script>
+	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/translate.js"></script>
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/search/view/js/controller_search.js"></script>
 
 </head>

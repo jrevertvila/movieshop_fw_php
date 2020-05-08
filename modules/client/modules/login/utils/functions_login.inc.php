@@ -2,25 +2,41 @@
 
 function validateLoginUser(){
     //comprobar que el email exista en la bbdd
-    if (findByEmail($_POST['email-user'])==false){
+
+    $userArr = array(
+                'emailv' => $_POST['email-user'],
+                'passv' => $_POST['passwd-user']
+    );
+    
+    // return $return=array('result'=>false,'errorEmail'=>loadModel(CLIENT_LOGIN_MODEL, "login_model", "verifyPassword", $userArr));
+    
+    if (loadModel(CLIENT_LOGIN_MODEL, "login_model", "findByEmailLocal", $userArr)==false){
         return $return=array('result'=>false,'errorEmail'=>'The account don\'t exists or incorrect password');
     }
-
-    if (verifyPasswd($_POST['passwd-user'],$_POST['email-user'])==false){
+    
+    if (loadModel(CLIENT_LOGIN_MODEL, "login_model", "verifyPassword", $userArr)==false){
         return $return=array('result'=>false,'errorPassword'=>'Incorrect password');
     }
-    $info = userInfoSession($_POST['email-user']);
+    $userArr = array('emailv' => $_POST['email-user']);
+
+    $info = loadModel(CLIENT_LOGIN_MODEL, "login_model", "userDataLocal", $userArr);
+
     $result = array(
+        'id' => $info[0]['id'],
 
-        'email' => $info[0]->email,
+        'email' => $info[0]['email'],
 
-        'username' => $info[0]->username,
+        'username' => $info[0]['username'],
 
-        'id' => $info[0]->id,
-
-        'type' => $info[0]->type,
+        'type' => $info[0]['type'],
         
-        'avatar' => $info[0]->avatar,
+        'avatar' => $info[0]['avatar'],
+
+        'active' => $info[0]['active'],
+
+        'registration_date' => $info[0]['registration_date'],
+
+        'saldo' => $info[0]['saldo']
 
     );
 
@@ -61,4 +77,25 @@ function generate_Token_secure($longitud){
         $longitud = 4;
     }
     return bin2hex(openssl_random_pseudo_bytes(($longitud - ($longitud % 2)) / 2));
+}
+
+function encode_token($name){
+    $header = '{"typ":"JWT", "alg":"HS256"}';
+    $secret = 'maytheforcebewithyou';
+    $arrayPayload =array(
+     'iat' => time(),
+     'exp'=> time() + (5 * 60),
+     'name'=> $name,
+    );
+    $payload = json_encode($arrayPayload);
+
+    $JWT = new JWT;
+    return $JWT->encode($header, $payload, $secret);
+}
+
+function decode_token($token){
+    $secret = 'maytheforcebewithyou';
+    $JWT = new JWT;
+    $json = $JWT->decode($token, $secret);
+    return $json;
 }

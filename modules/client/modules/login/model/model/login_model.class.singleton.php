@@ -27,6 +27,12 @@ class login_model {
     public function active_user($data){
         return $this->bll->active_user($data);
     }
+    public function verifyPassword($data){
+        return $this->bll->verifyPassword($data);
+    }
+    public function userDataLocal($data){
+        return $this->bll->userDataLocal($data);
+    }
     
     
     

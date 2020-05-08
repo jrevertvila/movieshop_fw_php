@@ -95,3 +95,32 @@ main{
     width: 100%;
     text-align: left;
 }
+
+/* AUTH BTNS */
+
+.social-btns{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.google-btn-signin{
+    width: 200px;
+}
+
+.google-btn-signin-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ghub-btn-signin{
+    color: rgb(247, 247, 247) !important;
+    font-size: 15px;
+    width: 200px;
+    height: 39px;
+    /* background-color: #ffffff; */
+    /* border: 0.5px solid rgb(199, 199, 199); */
+}
