@@ -36,5 +36,11 @@
 		public function userDataLocal($data){
 			return $this->dao->userDataLocal($this->db,$data);
 		}
+		public function get_token_password($data){
+			return $this->dao->get_token_password($this->db,$data);
+		}
+		public function change_password($data){
+			return $this->dao->change_password($this->db,$data);
+		}
 
 	}

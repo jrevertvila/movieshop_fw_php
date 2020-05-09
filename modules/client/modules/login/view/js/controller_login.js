@@ -1,5 +1,6 @@
 $(document).ready(function(){
     loadLogin();
+    btnsRequestChangePasswd();
 });
 
 function loadLogin(){
@@ -45,7 +46,7 @@ function loadLogin(){
     });
 
     $('.forgot-passwd').on('click',function(){
-        location.href=pretty("?module=login&function=recover_password");
+        location.href=pretty("?module=login&function=change_password");
     });
 }
 
@@ -387,4 +388,94 @@ var ajaxLoginUser = function(data) {
             reject("Error");
         });
     })
+}
+
+function btnsRequestChangePasswd(){
+    $('#RequestChangePassword').on('click',function(){
+        requestChangePassword();
+    });
+    $('#ChangePassword').on('click',function(){
+        validateNewPassword();
+    });
+}
+
+function requestChangePassword(){
+    var data = $('#email_pass').val();
+
+    $.ajax({
+        type: 'POST',
+        data: {"email":data},
+        url: pretty("?module=login&function=sendEmailRequestPass"),
+    })
+    .done(function(data){
+        console.log(data);
+        if (data == "true"){
+            toastr.success('Email sent successfully! Check your mail inbox!!');
+        }else{
+            toastr.error('Something went wrong :/ Wait or try again.');
+        }
+    })
+    .fail(function(data){
+        console.log(data);
+    });
+
+}
+
+function validateNewPassword(){
+    //VALIDATE PASSWORD
+    var e = 0;
+    if ($('#pass1').val().length==0){
+        $('#passwd1_error').html('Password can\'t be blank');
+        return 0;
+    }else if($('#pass1').val().length < 4 || $('#pass1').val().length > 16){
+        $('#passwd1_error').html('Four characters minimum');
+        e = 1;
+    }else{
+        $('#passwd1_error').html('');
+    }
+
+    //VALIDATE THAT THE PASSWORDS MATCH
+    if ($('#pass1').val().length==0){
+        $('#no_matches_error').html('Confirm password can\'t be blank');
+        e = 1;
+    }else if($('#pass2').val() != $('#pass1').val()){
+        $('#no_matches_error').html('Passwords don\'t match');
+        e = 1;
+    }else{
+        $('#no_matches_error').html('');
+    }
+
+    if (e == 1){
+        return 0;
+    }else{
+
+        var passwd = $('#pass1').val();
+        var token = get_token_url_by('new_password');
+
+        $.ajax({
+            type: 'POST',
+            data: {"token":token,"new_password":passwd},
+            url: pretty("?module=login&function=change_new_password"),
+        })
+        .done(function(data){
+            console.log(data);
+            if (data == "true"){
+                toastr.success('Password changed successfully');
+            }else{
+                toastr.error('Something went wrong :/ Wait or try again.');
+            }
+        })
+        .fail(function(data){
+            console.log(data);
+        });
+
+
+    }
+}
+
+function get_token_url_by(indexof){ //La funcion deberia seguir funcionando en caso de que la URL sea modificada, ya que busca la posicion de new_password y el siguiente es el token
+    var arr = location.href.split('/');
+    var tokenIndex = (arr.indexOf(indexof)+1);
+    var Token = arr[tokenIndex];
+    return Token;
 }

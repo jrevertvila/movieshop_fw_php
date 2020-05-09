@@ -84,13 +84,70 @@ class controller_login {
         }
         self::list_login();
     }
-
-    function recover_password(){
+    
+    function request_change_password_view(){
         require(CLIENT_LOGIN_VIEW_PATH . "inc/top_page_login.php");
         require(CLIENT_VIEW_PATH . "inc/header.html");
-        loadView(CLIENT_LOGIN_VIEW_PATH,'recover_password.html');
+        loadView(CLIENT_LOGIN_VIEW_PATH,'request_change_password.html');
         require(CLIENT_VIEW_PATH . "inc/bottom_page.html");
     }
+
+    function change_password_view(){
+        require(CLIENT_LOGIN_VIEW_PATH . "inc/top_page_login.php");
+        require(CLIENT_VIEW_PATH . "inc/header.html");
+        loadView(CLIENT_LOGIN_VIEW_PATH,'change_password.html');
+        require(CLIENT_VIEW_PATH . "inc/bottom_page.html");
+    }
+
+
+    function sendEmailRequestPass(){
+        $email = $_POST['email'];
+        $data = array('email' => $email);
+        $token = loadModel(CLIENT_LOGIN_MODEL, "login_model", "get_token_password", $data);
+
+        $url = "http://localhost/movieshop_fw_php/login/new_password/".$token[0]['token_recover'];
+
+
+
+        $html = <<<EOD
+            <html>
+            <body>
+                <strong>Reset your password:</strong>
+                <br>
+                <span>For reset your password, please click the next link:</span><br>
+                <a href="$url">$url</a>
+                
+                <br>
+                <span>You can visit our website in: <a href="http://localhost/movieshop_fw_php/">www.movieshop.com</a></span>
+                <br>
+                <p>Sent by Movieshop</p>
+            </body>
+            </html>
+            EOD;
+
+            $data = array(
+                "type" => "reset_password",
+                "email" => $email,
+                "html" => $html,
+            );
+        $result = send_email($data);
+            
+        echo json_encode($result);
+    }
+
+    function change_new_password(){
+        $data = array(
+            "token" => $_POST['token'],
+            "password" => $_POST['new_password']
+        );
+        try{
+            loadModel(CLIENT_LOGIN_MODEL, "login_model", "change_password", $data);
+            echo json_encode(true);
+        }catch(PDOException $e){
+            echo json_encode(false);
+        }
+    }
+
 
     function test(){
         $token = decode_token($_POST['token']);

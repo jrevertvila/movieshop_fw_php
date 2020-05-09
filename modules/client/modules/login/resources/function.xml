@@ -26,8 +26,24 @@
     </function>
 
     <function>
-        <name>recover_password</name>
-        <uri>recover_password</uri>
+        <name>request_change_password_view</name>
+        <uri>change_password</uri>
+    </function>
+
+    <function>
+        <name>sendEmailRequestPass</name>
+        <uri>sendEmailRequestPass</uri>
+    </function>
+
+
+    <function>
+        <name>change_password_view</name>
+        <uri>new_password</uri>
+    </function>
+
+    <function>
+        <name>change_new_password</name>
+        <uri>change_new_password</uri>
     </function>
 
 </functions>

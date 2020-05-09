@@ -33,6 +33,12 @@ class login_model {
     public function userDataLocal($data){
         return $this->bll->userDataLocal($data);
     }
+    public function get_token_password($data){
+        return $this->bll->get_token_password($data);
+    }
+    public function change_password($data){
+        return $this->bll->change_password($data);
+    }
     
     
     

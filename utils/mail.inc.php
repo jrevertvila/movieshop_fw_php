@@ -13,6 +13,9 @@
             case 'register':
                 $subject = "Validate your account";
             break;
+            case 'reset_password':
+                $subject = "Reset your password";
+            break;
         }
         try{
             if ($data['type'] === 'admin'){

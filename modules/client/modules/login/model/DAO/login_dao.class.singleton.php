@@ -58,7 +58,22 @@ class login_dao {
         $sql = 'SELECT * FROM users WHERE account_type = "local" AND email = "'.$data['emailv'].'"';
         $stmt = $db->ejecutar($sql);
         return $pass = $db->listar($stmt);
-    
+    }
+
+    public function get_token_password($db,$data) {
+        $sql = 'SELECT token_recover FROM users WHERE account_type = "local" AND email = "'.$data['email'].'"';
+        $stmt = $db->ejecutar($sql);
+        return $pass = $db->listar($stmt);
+    }
+
+    function change_password($db,$data){
+        
+
+        $newToken = generate_Token_secure(20);
+        
+        $newPassword = password_hash($data['password'], PASSWORD_DEFAULT);
+        $sql = 'UPDATE users SET password = "'.$newPassword.'",token_recover = "'.$newToken.'" WHERE token_recover = "'.$data['token'].'"';
+        return $stmt = $db->ejecutar($sql);
     }
 
     

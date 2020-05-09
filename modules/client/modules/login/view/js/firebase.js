@@ -1,4 +1,12 @@
 $(document).ready(function(){
+
+    cfg_firebase();
+    google_auth();
+    github_auth();
+
+});
+
+function cfg_firebase(){
     var config = {
         apiKey: "AIzaSyCpC-wWyh-q81YQhzJKYRdN7MxVLwCKau8",
         authDomain: "movieshop-fw-php.firebaseapp.com",
@@ -9,7 +17,11 @@ $(document).ready(function(){
     };
 
     firebase.initializeApp(config);
+}
 
+//GOOGLE AUTH
+
+function google_auth(){
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('email');
 
@@ -19,35 +31,27 @@ $(document).ready(function(){
         console.log("GOOGLE");
         authService.signInWithPopup(provider)
         .then(function(result) {
-            console.log(result)
-            console.log('Hemos autenticado al usuario ', result.user);
-            console.log(result.user.displayName);
-            console.log(result.user.email);
-            console.log(result.user.photoURL);
+            console.log(result);
         })
         .catch(function(error) {
             console.log('Se ha encontrado un error:', error);
         });
     });
+    google_auth_buttons();
+}
 
-
-
-    $('.ghub-btn-signin').on('click',function(){
-        console.log("GOOGLE");
-    });
+function google_auth_buttons(){
     $('.checkLoggedGoogle').on('click',function(){
-        checkIfLoggedIn();
+        google_check_auth_state();
     });
     $('.logoutGoogle').on('click',function(){
-        authService.signOut();
-        checkIfLoggedIn();
+        firebase.auth().signOut();
     });
+}
 
 
-});
 
-
-function checkIfLoggedIn()
+function google_check_auth_state()
 {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) { //loggeado
@@ -59,3 +63,25 @@ function checkIfLoggedIn()
         }
     });
 }
+
+//GITHUB AUTH
+
+function github_auth(){
+    var provider = new firebase.auth.GithubAuthProvider();
+    var authService = firebase.auth();
+
+    $('.ghub-btn-signin').on('click', function() {
+        authService.signInWithPopup(provider)
+        .then(function(result) {
+            console.log(result);
+            
+        }).catch(function(error) {
+          console.log(error);
+        });
+    });
+    //github_auth_buttons();
+}
+
+// function github_auth_buttons(){
+
+// }

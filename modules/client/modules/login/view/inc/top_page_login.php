@@ -36,13 +36,14 @@
 	<link href="/movieshop_fw_php/modules/client/modules/login/view/css/header.css" rel="stylesheet" type="text/css"/>
 	<link href="/movieshop_fw_php/modules/client/modules/login/view/css/style.css" rel="stylesheet" type="text/css"/>
 	<link href="/movieshop_fw_php/modules/client/modules/login/view/css/recover_password.css" rel="stylesheet" type="text/css"/>
+	<link href="/movieshop_fw_php/modules/client/modules/login/view/css/request_change_password.css" rel="stylesheet" type="text/css"/>
 	<!-- <link href=/movieshop_fw_php/modules/client/modules/cart/view/css/cart_header.css" rel="stylesheet" type="text/css"/> -->
 
 	<script type="text/javascript" src="/movieshop_fw_php/view/js/main.js"></script>
 	<!-- <script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/cart/controller/controller_cart.js"></script> -->
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/apykeys.js"></script>
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/login/view/js/controller_login.js"></script>
-	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/login/view/js/firebase_gmail.js"></script>
+	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/login/view/js/firebase.js"></script>
 	<!-- <script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/login/model/activity.js"></script> -->
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/functions.js"></script>
 	<script type="text/javascript" src="/movieshop_fw_php/modules/client/view/js/translate.js"></script>
