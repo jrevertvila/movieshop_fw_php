@@ -39,7 +39,12 @@ class login_model {
     public function change_password($data){
         return $this->bll->change_password($data);
     }
-    
+    public function create_firebase_user($data){
+        return $this->bll->create_firebase_user($data);
+    }
+    public function check_if_exists_firebase_user($data){
+        return $this->bll->check_if_exists_firebase_user($data);
+    }
     
     
 }

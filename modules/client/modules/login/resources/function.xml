@@ -46,4 +46,9 @@
         <uri>change_new_password</uri>
     </function>
 
+    <function>
+        <name>firebase_login</name>
+        <uri>firebase_login</uri>
+    </function>
+
 </functions>

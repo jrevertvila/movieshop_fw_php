@@ -19,7 +19,7 @@ class controller_login {
         $result = validateLoginUser();
         
         if ($result['result']){
-            $dataToken = $result['data']['id'].':'.$result['data']['type'];
+            $dataToken = $result['data']['id'];
             $token = encode_token($dataToken);
             $return = array(
                 "result" => true,
@@ -146,6 +146,57 @@ class controller_login {
         }catch(PDOException $e){
             echo json_encode(false);
         }
+    }
+
+    function firebase_login(){
+        $data = $_POST['auth_data'];
+        $name = "";
+        $surnames = "";
+
+        if( $data['providerId'] == "google.com"){
+            $fullname = explode(" ",$data['displayName']);
+            if (count($fullname) !== 0){
+                $name = $fullname[0];
+                $surnames_array = array_slice($fullname, 1, count($fullname));
+                $surnames = implode(" ", $surnames_array);
+            }
+        }
+
+
+        $result = array(
+            'id' => $data['uid'],
+
+            'username' => $_POST['username'],
+    
+            'email' => $data['email'],
+    
+            'password' => "",
+    
+            'token_check' => generate_Token_secure(20),
+    
+            'token_recover' => generate_Token_secure(20),
+    
+            'account_type' => $data['providerId'],
+
+            'avatar' => $data['photoURL'],
+
+            'name' => $name,
+
+            'surnames' => $surnames
+            
+        );
+        if (loadModel(CLIENT_LOGIN_MODEL, "login_model", "check_if_exists_firebase_user", $result) == false){
+            loadModel(CLIENT_LOGIN_MODEL, "login_model", "create_firebase_user", $result);
+        }
+        
+
+        $token = encode_token($data['uid']);
+        $return = array(
+            "token" => $token,
+            "avatar" => $data['photoURL']
+        );
+
+        echo json_encode($return);
     }
 
 

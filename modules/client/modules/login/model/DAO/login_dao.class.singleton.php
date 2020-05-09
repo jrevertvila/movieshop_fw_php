@@ -76,6 +76,22 @@ class login_dao {
         return $stmt = $db->ejecutar($sql);
     }
 
+    function create_firebase_user($db,$data){
+        $sql = 'INSERT INTO ' . 'users' . ' (id, username, password, email, avatar, token_check, token_recover, type, account_type, name, surnames) VALUES ("'.$data['id'].'","'.$data['username'].'", "'.$data['password'].'", "'.$data['email'].'", "'.$data['avatar'].'","'.$data['token_check'].'","'.$data['token_recover'].'", "client", "'.$data['account_type'].'", "'.$data['name'].'", "'.$data['surnames'].'")';
+        return $stmt = $db->ejecutar($sql);
+    }
+
+    public function check_if_exists_firebase_user($db,$data) {
+        $sql = 'SELECT * FROM users WHERE id = "'.$data['id'].'"';
+        $stmt = $db->ejecutar($sql);
+    
+        if($db->listar($stmt) == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     
 
 }

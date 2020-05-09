@@ -22,6 +22,10 @@
 	<script src="/movieshop_fw_php/modules/client/view/libraries/multiple-select-1.5.2/dist/multiple-select.min.js"></script>
 	<script src="/movieshop_fw_php/modules/client/view/libraries/jquery.bootpag.min.js"></script>
 
+	<!-- Firebase -->
+	<script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+	<script type="text/javascript" src="/movieshop_fw_php/modules/client/modules/login/view/js/firebase.js"></script>
+
 	<!-- Local imports -->
 	<link href="/movieshop_fw_php/modules/client/view/css/style.css" rel="stylesheet" type="text/css" />
 	<link href="/movieshop_fw_php/modules/client/modules/shop/view/css/header.css" rel="stylesheet" type="text/css" />

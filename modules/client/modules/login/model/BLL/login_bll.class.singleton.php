@@ -42,5 +42,10 @@
 		public function change_password($data){
 			return $this->dao->change_password($this->db,$data);
 		}
-
+		public function create_firebase_user($data){
+			return $this->dao->create_firebase_user($this->db,$data);
+		}
+		public function check_if_exists_firebase_user($data){
+			return $this->dao->check_if_exists_firebase_user($this->db,$data);
+		}
 	}

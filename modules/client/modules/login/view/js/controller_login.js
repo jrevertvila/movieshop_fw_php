@@ -32,7 +32,7 @@ function loadLogin(){
                 '<i class="fab fa-github"></i> Sign in with GitHub'+
             '</a>'+
         '</div>'+
-        '<a href="#" class="checkLoggedGoogle">CHECK LOGGED</a>'+
+        '<a href="#" class="checkLogged">CHECK LOGGED</a>'+
         '<a href="#" class="logoutGoogle">LOG OUT</a>'+ 
     '</form>'
     );
@@ -301,12 +301,15 @@ function itemsLSToArray(){
 
 
 function logout(){
-
+    if(check_auth_state() == true){
+        firebase.auth().signOut();
+    }
+    
     localStorage.removeItem('user_avatar');
     localStorage.removeItem('authToken');
     localStorage.removeItem('cart-items');
     location.href=pretty('?module=home');
-
+    
 
     // $.ajax({
     //     type: 'GET',
