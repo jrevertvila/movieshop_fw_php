@@ -1,35 +1,6 @@
 
 $(document).ready(function(){
 
-    //CHANGE HEADER-MAIN OPACITY WHILE SCROLLING DOWN
-    /*$(window).scroll(function() {
-        var scrollTop = $(this).scrollTop();
-        $(".header").css({
-            "background-color": function(){
-                var elementHeight = 390;
-                var value = 1 - (elementHeight - scrollTop) / elementHeight;
-                // console.log(value);
-                return "rgba(20, 20, 20," + value + " )";
-            }        
-        });
-        
-        // console.log(scrollTop);
-    });
-
-    //FUNCTION FOR CHANGE THE LENGTH OF BORDER-BOTTOM
-    /*$( "#header-login" ).hover(
-        function() {
-            $(this).css({
-                "display": "block",
-                "width": "20px",
-                "border-bottom": "1px solid white",
-                "border-bottom-width": "15px,"
-            })
-        }, function() {
-            $(this).css({"border-bottom": "0px solid white"})
-        }
-    );*/
-
     if (localStorage.getItem('authToken')===null){
         
         $('#contact-us').after(
@@ -112,7 +83,6 @@ $(document).ready(function(){
     $('#header-logout').on('click', function() {
         
         $.getScript( "/movieshop_fw_php/modules/client/modules/login/view/js/controller_login.js", function() {
-            console.log("load"); // Data returned
             logout();
         });
         

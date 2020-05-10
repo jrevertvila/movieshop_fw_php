@@ -78,3 +78,48 @@ function generate_Token_secure($longitud){
     }
     return bin2hex(openssl_random_pseudo_bytes(($longitud - ($longitud % 2)) / 2));
 }
+
+function activity($token){
+        $arrayPayload = json_decode(decode_token($token));               //payload del token que viene de localStorage
+        $cmpr_token = encode_token($arrayPayload->name);    // con el nombre del token_user generamos un nuevo token
+        $newPayload = json_decode(decode_token($cmpr_token));            // decodificamos el nuevo token para comparar fechas
+
+        if(  ($arrayPayload->exp) > ($newPayload->iat)  ){
+            $result = array(
+                'result' => true,
+                'token' => $cmpr_token,
+                'name' => $arrayPayload->name
+            );
+        } else {
+            $result = array(
+                'result' => false,
+                'name' => "token invalid"
+            );
+        }
+
+    return $result;
+}
+
+// function activity($token){
+//     // $tok = json_decode($token);
+//     $arrayPayload = decode_token($token);
+//     $name=  json_decode($arrayPayload)->name;               //payload del token que viene de localStorage
+//     return $name;
+//     $cmpr_token = encode_token($name);    // con el nombre del token_user generamos un nuevo token
+//     $newPayload = decode_token($cmpr_token);            // decodificamos el nuevo token para comparar fechas
+
+//     if(  (json_decode($arrayPayload)->exp) > (json_decode($newPayload)->iat)  ){
+//         $result = array(
+//             'result' => true,
+//             'token' => $cmpr_token,
+//             'name' => json_decode($arrayPayload)->name
+//         );
+//     } else {
+//         $result = array(
+//             'result' => false,
+//             'name' => "token invalid"
+//         );
+//     }
+
+//     return $result;
+// }

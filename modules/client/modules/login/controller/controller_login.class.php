@@ -199,6 +199,22 @@ class controller_login {
         echo json_encode($return);
     }
 
+    function check_activity_token(){
+        $result = activity($_POST['token']);
+        
+        echo json_encode($result['result']);
+    }
+
+    function get_user_id(){
+        $token = decode_token($_POST['token']);
+        echo $token;
+    }
+
+    function get_new_token(){
+        $token = encode_token($_POST['id']);
+        echo json_encode($token);
+    }
+
 
     function test(){
         $token = decode_token($_POST['token']);

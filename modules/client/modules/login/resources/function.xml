@@ -51,4 +51,19 @@
         <uri>firebase_login</uri>
     </function>
 
+    <function>
+        <name>check_activity_token</name>
+        <uri>check_activity_token</uri>
+    </function>
+
+    <function>
+        <name>get_new_token</name>
+        <uri>get_new_token</uri>
+    </function>
+
+    <function>
+        <name>get_user_id</name>
+        <uri>get_user_id</uri>
+    </function>
+
 </functions>

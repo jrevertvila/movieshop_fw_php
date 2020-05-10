@@ -24,7 +24,7 @@
         $secret = 'maytheforcebewithyou';
         $arrayPayload =array(
          'iat' => time(),
-         'exp'=> time() + (5 * 60),
+         'exp'=> time() + (30 * 60),
          'name'=> $name,
         );
         $payload = json_encode($arrayPayload);
