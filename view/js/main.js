@@ -6,12 +6,7 @@ function pretty(url) {
     for (var i=0;i<url.length;i++) {
     	cont++;
         var aux = url[i].split("=");
-        if (cont == 2) {
-        	link +=  "/"+aux[1]+"/";	
-        }else{
-        	link +=  "/"+aux[1];
-        }
-        
+        link +=  "/"+aux[1];
     }
     return "http://localhost/movieshop_fw_php" + link;
 }

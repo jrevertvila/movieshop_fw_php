@@ -55,3 +55,8 @@
     define('CLIENT_LOGIN_VIEW_PATH', CLIENT_MODULES_PATH . 'login/view/');
     define('CLIENT_LOGIN_MODEL', CLIENT_MODULES_PATH . 'login/model/model/');
     define('CLIENT_LOGIN_UTILS', CLIENT_MODULES_PATH . 'login/utils/');
+
+    //PROFILE
+    define('CLIENT_PROFILE_PATH', CLIENT_MODULES_PATH . 'profile/');
+    define('CLIENT_PROFILE_VIEW_PATH', CLIENT_MODULES_PATH . 'profile/view/');
+    define('CLIENT_PROFILE_MODEL', CLIENT_MODULES_PATH . 'profile/model/model/');

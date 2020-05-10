@@ -68,7 +68,11 @@ $(document).ready(function(){
     }
 
     $('#header-profile').on('click', function() {
-        location.href="index.php?page=profile";
+        location.href=pretty("?module=profile");
+    });
+
+    $('#header-orders').on('click', function() {
+        location.href=pretty("?module=profile&function=orders");
     });
 
     $( "#header-login" ).hover(
@@ -107,7 +111,7 @@ $(document).ready(function(){
 
     $('#header-logout').on('click', function() {
         
-        $.getScript( "modules/client/modules/login/view/js/controller_login.js", function() {
+        $.getScript( "/movieshop_fw_php/modules/client/modules/login/view/js/controller_login.js", function() {
             console.log("load"); // Data returned
             logout();
         });

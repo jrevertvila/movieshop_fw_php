@@ -1,0 +1,110 @@
+/* SEARCH BAR */
+
+.form-search{
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    width: 800px;
+    height: 66px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    align-items: center;
+    background-color: rgb(59, 56, 56);
+}
+#search-bar{
+    height: 100%;
+    width: 43%;
+    background-color: transparent;
+    border: none;
+    color: rgb(248, 211, 0);
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 1.5px solid rgb(248, 211, 0);
+}
+.search-button{
+    height: 100%;
+    width: 100px;
+    border: 1px solid black;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(116, 116, 116);
+    background-color: rgb(238, 214, 0);
+    border-radius: 3px;
+}
+
+
+
+#search-orders{
+    width: max-content;
+    height: 100%;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    color: rgb(248, 211, 0); 
+    border-bottom: 1.5px solid rgb(248, 211, 0);
+}
+.icon-search{
+    font-size: 32px;
+    margin-right: 6px;
+    color: rgb(163, 163, 163);
+}
+
+.form-all{
+    display: flex;
+    flex-direction: column;
+}
+
+.autocomplete-div{
+    background-color: rgba(255, 255, 255, 0.822);
+    width: 800px;
+    height: auto;
+    position: absolute;
+    margin-top: 66px;
+}
+
+.item-autocomplete{
+    border-bottom: 1px solid rgb(189, 189, 189);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item-autocomplete:hover{
+    background-color: rgba(172, 172, 172, 0.822);
+}
+
+.img-item-autocomplete{
+    height: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.text-item-autocomplete{
+    font-weight: bold;
+}
+
+/* SELECT DESIGN */
+
+.ms-parent,.ms-choice{
+    height: 100% !important;
+    background-color: transparent;
+    color: rgb(248, 211, 0) !important;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; 
+  }

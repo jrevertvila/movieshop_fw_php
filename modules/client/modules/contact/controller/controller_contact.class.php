@@ -8,6 +8,7 @@ class controller_contact {
 
     function list_contact(){//carga la vista(HTML JS)
 
+        require(CLIENT_VIEW_PATH . "inc/top_page_client.html");
         require(CLIENT_CONTACT_VIEW_PATH . "inc/top_page_contact.php");
         require(CLIENT_VIEW_PATH . "inc/header.html");
         loadView(CLIENT_CONTACT_VIEW_PATH,'contact.html');

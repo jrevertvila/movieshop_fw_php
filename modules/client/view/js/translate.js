@@ -11,7 +11,7 @@ function changeLang(lang) {
         
         $.ajax({ 
             type: 'POST', 
-            url: 'modules/client/view/json/'+lang+'.json',
+            url: '/movieshop_fw_php/modules/client/view/json/'+lang+'.json',
             dataType: 'json',
             success: function (data) { 
 
@@ -50,16 +50,18 @@ function changeLang(lang) {
   
 $( document ).ready(function() {
 
-    changeLang();
+    setTimeout(() => {
+        changeLang();
+        $( '#lang' ).on( "change", function() {
+            if ($(this).val()=="es")
+            changeLang('es');
 
-    $( '#lang' ).on( "change", function() {
-        if ($(this).val()=="es")
-        changeLang('es');
+            if ($(this).val()=="en")
+            changeLang('en');
 
-        if ($(this).val()=="en")
-        changeLang('en');
-
-        if ($(this).val()=="va")
-        changeLang('va');
-    });
+            if ($(this).val()=="va")
+            changeLang('va');
+        });
+    }, 150);
+    
 });

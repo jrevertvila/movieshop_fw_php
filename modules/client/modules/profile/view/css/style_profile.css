@@ -1,0 +1,223 @@
+body{
+    background-color: #fafafa;
+}
+
+.container-profile{
+    display: flex;
+    flex-direction: row;
+    margin-top: 140px;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-between;
+
+}
+.profile-pool-left{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    min-width: 240px;
+    height: auto;
+    background-color: white;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 2px;
+}
+
+.profile-pool-right{
+    width: 77%;
+    min-width: 700px;
+    margin-left: 20px;
+    height: 600px;
+    background-color: white;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 7px;
+}
+
+.canvas-title-pool-left{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title-pool-left{
+    font-size: 22px;
+    font-weight: 450;
+}
+
+.canvas-img-profile{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas-options-profile{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid black; */
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.option-profile:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.option-profile{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
+    height: 45px;
+    min-height: 45px;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 3px;
+    font-size: 16.2px;
+    font-weight: 400;
+    color: rgb(48, 48, 48);
+
+}
+.option-profile:hover{
+    background-color: rgb(250, 250, 250);
+    border: 1px solid #ff4747;
+    color: #ff4747;
+    font-weight: 500;
+}
+
+.toggled{
+    background-color: rgb(250, 250, 250);
+    border: 1px solid #ff4747;
+    color: #ff4747;
+    font-weight: 500;
+}
+
+.img-profile{
+    margin-top: -7px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.title-section-profile{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-section-profile span{
+    font-size: 32px;
+    font-weight: 450;
+    color: rgb(63, 63, 63);
+}
+
+.canvas-saldo-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-top: -15px;
+}
+
+.saldo-profile{
+    font-weight: 500;
+}
+
+.saldo-profile:not(:last-child){
+    margin-right: 5px;
+}
+
+.wrapper-pool-right{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+}
+
+.info-user-profile{
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.info-user-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 450;
+}
+
+.info-user-row:not(:last-child){
+    margin-bottom: 15px;
+}
+
+.info-user-row input{
+    width: 80%;
+}
+
+.canvas-btn-edit-profile{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-edit-profile{
+    margin-top: 70px;
+    width: 80%;
+    height: 42px;
+    background-color: #ff4747;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.btn_cancel{
+    background-color: #ff4747;
+}
+
+.btn_apply{
+    background-color: #3a90ec;
+}
+
+.separator-btns{
+    width: 20px;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+::-moz-selection { /* Code for Firefox */
+    background: #f16e6e;
+}
+
+::selection {
+    background: #f16e6e;
+}
+
+/* button:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+} */
+
+input:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}

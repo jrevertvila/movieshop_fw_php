@@ -13,6 +13,7 @@ class controller_home {
         //echo "LIST CONTACT";
         // echo CLIENT_CONTACT_VIEW_PATH . "inc/top_page_contact.php";
         // die;
+        require(CLIENT_VIEW_PATH . "inc/top_page_client.html");
         require(CLIENT_HOME_VIEW_PATH . "inc/top_page_home.php");
         require(CLIENT_VIEW_PATH . "inc/header.html");
         loadView(CLIENT_HOME_VIEW_PATH,'home.html');

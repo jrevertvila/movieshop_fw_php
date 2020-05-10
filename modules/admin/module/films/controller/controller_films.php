@@ -1,9 +1,10 @@
 <?php
-
+    
     $path = $_SERVER['DOCUMENT_ROOT'].'/movieshop_fw_php/modules/admin/';
     $dummiesPath = $path."module/films/model/dummiesFilms.php";
     $functionsIncPath = $path."module/films/model/functions.inc.php";
 
+    include_once ($_SERVER['DOCUMENT_ROOT'].'/movieshop_fw_php/paths.php');
     include_once ($path."module/films/model/DAO_Films.php");
     include_once ($dummiesPath);
     include_once ($functionsIncPath);

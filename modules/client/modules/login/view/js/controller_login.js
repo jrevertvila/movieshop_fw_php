@@ -301,9 +301,10 @@ function itemsLSToArray(){
 
 
 function logout(){
-    if(check_auth_state() == true){
-        firebase.auth().signOut();
-    }
+    // if(check_auth_state() == true){
+        
+    // }
+    firebase.auth().signOut();
     
     localStorage.removeItem('user_avatar');
     localStorage.removeItem('authToken');
@@ -464,6 +465,9 @@ function validateNewPassword(){
             console.log(data);
             if (data == "true"){
                 toastr.success('Password changed successfully');
+                if (localStorage.getItem('return_profile')=="true"){
+                    location.href = pretty("?module=profile&function=account_info");
+                }
             }else{
                 toastr.error('Something went wrong :/ Wait or try again.');
             }

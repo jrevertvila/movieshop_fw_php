@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 function cfg_firebase(){
     var config = {
-        apiKey: "AIzaSyCpC-wWyh-q81YQhzJKYRdN7MxVLwCKau8",
+        apiKey: API_FIREBASE,
         authDomain: "movieshop-fw-php.firebaseapp.com",
         databaseURL: "https://movieshop-fw-php.firebaseio.com/",
         projectId: "movieshop-fw-php",

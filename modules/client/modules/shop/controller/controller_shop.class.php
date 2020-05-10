@@ -11,6 +11,7 @@ class controller_shop {
 
     function list_shop(){//carga la vista(HTML JS)
         
+        require(CLIENT_VIEW_PATH . "inc/top_page_client.html");
         require(CLIENT_SHOP_VIEW_PATH . "inc/top_page_shop.php");
         require(CLIENT_VIEW_PATH . "inc/header.html");
         loadView(CLIENT_SHOP_VIEW_PATH,'shop.html');

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>list_info_profile</name>
+        <uri>account_info</uri>
+    </function>
+
+    <function>
+        <name>list_orders_profile</name>
+        <uri>orders</uri>
+    </function>
+
+    <function>
+        <name>list_favs_profile</name>
+        <uri>favs</uri>
+    </function>
+
+    <function>
+        <name>list_addcash_profile</name>
+        <uri>cash</uri>
+    </function>
+
+    <function>
+        <name>get_data_user</name>
+        <uri>get_data_user</uri>
+    </function>
+
+    <function>
+        <name>update_user_data</name>
+        <uri>update_user_data</uri>
+    </function>
+
+</functions>

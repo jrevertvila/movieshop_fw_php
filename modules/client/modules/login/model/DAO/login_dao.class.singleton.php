@@ -14,7 +14,9 @@ class login_dao {
     }
 
     function create_new_user($db,$data){
-        $sql = 'INSERT INTO ' . 'users' . ' (id, username, password, email, avatar, token_check, token_recover, type, account_type) VALUES ("'.$data['username'].'","'.$data['username'].'", "'.$data['password'].'", "'.$data['email'].'", "modules/client/modules/login/view/img/default_avatar.png","'.$data['token_check'].'","'.$data['token_recover'].'", "client", "local")';
+        $hashEmail = md5 (strtolower(trim($data['email'])));
+        $avatar = "https://api.adorable.io/avatars/285/".$hashEmail;
+        $sql = 'INSERT INTO ' . 'users' . ' (id, username, password, email, avatar, token_check, token_recover, type, account_type) VALUES ("'.$data['username'].'","'.$data['username'].'", "'.$data['password'].'", "'.$data['email'].'", "'.$avatar.'","'.$data['token_check'].'","'.$data['token_recover'].'", "client", "local")';
         return $stmt = $db->ejecutar($sql);
     }
 
