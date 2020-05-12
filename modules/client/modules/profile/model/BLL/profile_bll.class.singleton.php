@@ -26,5 +26,12 @@
 			return $this->dao->update_user_data($this->db,$data);
 		}
 		
+		public function get_fav_movies_user($data){
+			return $this->dao->get_fav_movies_user($this->db,$data);
+		}
+
+		public function removeFav($data){
+			return $this->dao->removeFav($this->db,$data);
+		}
 
 	}

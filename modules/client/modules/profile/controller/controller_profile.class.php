@@ -75,4 +75,28 @@ class controller_profile {
         loadModel(CLIENT_PROFILE_MODEL, "profile_model", "update_user_data", $data);
     }
 
+    function get_fav_movies_user(){
+
+        $token = $_POST['token_jwt'];
+        $decoded = json_decode(decode_token($token));
+        $data = array("id" => $decoded->name);
+        $return = loadModel(CLIENT_PROFILE_MODEL, "profile_model", "get_fav_movies_user", $data);
+
+        echo json_encode($return); 
+    }
+
+    function removeFav(){
+
+        $payload = json_decode(decode_token($_POST['token']));               //payload del token que viene de localStorage
+        $id = $payload->name;
+
+        $data = array(
+            'id_movie' => $_POST['id_movie'],
+            'id_user' => $id
+        );
+        $json = loadModel(CLIENT_SHOP_MODEL, "shop_model", "removeFav", $data);
+        
+        echo json_encode($json);        
+    }
+
 }

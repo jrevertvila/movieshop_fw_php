@@ -24,4 +24,15 @@ class profile_dao {
         return $stmt = $db->ejecutar($sql);
     }
 
+    public function get_fav_movies_user($db,$data) {
+        $sql = 'SELECT * FROM films WHERE id in (select id_movie from user_favorites_movies where id_user = "'.$data['id'].'")';
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
+    public function removeFav($db,$data) {
+        $sql = 'DELETE FROM user_favorites_movies WHERE id_movie = '.$data['id_movie'].' AND id_user = "'.$data['id_user'].'"';
+        return $stmt = $db->ejecutar($sql);
+    }
+
 }

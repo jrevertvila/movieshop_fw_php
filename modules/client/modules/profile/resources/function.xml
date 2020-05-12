@@ -30,4 +30,14 @@
         <uri>update_user_data</uri>
     </function>
 
+    <function>
+        <name>get_fav_movies_user</name>
+        <uri>get_fav_movies_user</uri>
+    </function>
+
+    <function>
+        <name>removeFav</name>
+        <uri>removeFav</uri>
+    </function>
+
 </functions>

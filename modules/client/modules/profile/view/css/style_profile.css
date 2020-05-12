@@ -106,7 +106,7 @@ body{
 
 .title-section-profile{
     width: 100%;
-    height: 75px;
+    height: 12%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,7 +137,7 @@ body{
 
 .wrapper-pool-right{
     width: 100%;
-    height: 100%;
+    height: 88%;
     padding: 20px;
 
 }
@@ -220,4 +220,85 @@ body{
 input:disabled {
     cursor: not-allowed;
     pointer-events: all !important;
+}
+
+.wrapper-favs{
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    overflow-x: hidden;
+    text-align: center;
+    /* margin-right: -10px; */
+}
+/* SCROLLBAR DESIGN  - .WRAPPER-FAVS*/
+
+.wrapper-favs::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+}
+.wrapper-favs::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+}
+.wrapper-favs::-webkit-scrollbar-thumb {
+    background-color: #ff4747;    /* color of the scroll thumb */
+    border-radius: 15px;       /* roundness of the scroll thumb */
+    border: 3px solid transparent;  /* creates padding around scroll thumb */
+}
+
+
+.item-fav{
+    border: 1px solid black;
+    width: 140px;
+    height: 180px;
+    margin: 13px 13px 50px 13px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.img-item-fav{
+    display: block;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.item-fav:hover > .overlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-color:#000;
+    opacity:0.5;
+    transition: 0.2s;
+}
+
+.title-movie-fav{
+    
+    font-weight: 500;
+}
+.show-movie-fav{
+    display: none;
+}
+
+.item-fav:hover > .show-movie-fav{
+    display: block;
+    color: rgb(241, 241, 241);
+    position: absolute;
+    top: 38px;
+    left: 45px;
+    font-size: 40px;
+    transition: 0.2s;
+}
+
+.unlike-movie-fav{display: none;}
+
+.item-fav:hover > .unlike-movie-fav{
+    display: block;
+    color: rgb(241, 241, 241);
+    position: absolute;
+    top: 95px;
+    left: 45px;
+    font-size: 40px;
+    transition: 0.2s;
 }

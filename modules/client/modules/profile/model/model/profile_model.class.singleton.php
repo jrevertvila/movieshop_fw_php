@@ -21,5 +21,13 @@ class profile_model {
     public function update_user_data($data){
         return $this->bll->update_user_data($data);
     }
+
+    public function get_fav_movies_user($data){
+        return $this->bll->get_fav_movies_user($data);
+    }
+
+    public function removeFav($data){
+        return $this->bll->removeFav($data);
+    }
     
 }

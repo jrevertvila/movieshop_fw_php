@@ -211,9 +211,56 @@ function load_favs_view(){
             '<span>Favourite Movies</span>'+
         '</div>'+
         '<div class="wrapper-pool-right">'+
-            
+            '<div class="wrapper-favs"><div>'+
         '</div>'
     );
+
+    //GET FAVOURITES MOVIES OF USER
+    var token = localStorage.getItem('authToken');
+    $.ajax({
+        data: {"token_jwt":token},
+        type: 'POST',
+        url: pretty("?module=profile&function=get_fav_movies_user"),
+    })
+    .done(function(data){
+        movies = JSON.parse(data);
+
+        for (let i = 0; i < movies.length; i++) {
+            $('.wrapper-favs').append(
+                '<div class="item-fav" id="'+movies[i].id+'">'+
+                    '<div class="overlay"></div>'+
+                    '<i class="fas fa-eye show-movie-fav"></i>'+
+                    '<i class="fas fa-heart-broken unlike-movie-fav"></i>'+
+                    '<img class="img-item-fav" src="'+movies[i].coverimg+'">'+
+                    '<span class="title-movie-fav">'+movies[i].title+'</span>'+
+                '</div>'
+            );
+        }
+        $('.show-movie-fav').on('click',function(){
+            var id = $(this).parent().attr('id')
+            localStorage.setItem('movie-details',id);
+            location.href=pretty('?module=shop');
+        });
+
+        $('.unlike-movie-fav').on('click',function(){
+            var id = $(this).parent().attr('id')
+            $.ajax({
+                type: 'POST',
+                url: pretty("?module=profile&function=removeFav"),
+                data: {"id_movie":id,"token":localStorage.getItem('authToken')},
+                success: function () {
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+            $(this).parent().remove();
+        });
+        
+    })
+    .fail(function(data){
+        console.log(data);
+    });
 }
 
 function load_cash_view(){
