@@ -120,7 +120,7 @@ function validateLogin(){
                 console.log(result);
                 localStorage.setItem('authToken',result.token);
                 localStorage.setItem('user_avatar',result.avatar);
-                // setCartLS(data.id);
+                setCartLS();
                 
                 if (localStorage.getItem('shop-redirect') === null || localStorage.getItem('shop-redirect')==""){
                     location.href=pretty("?module=home");
@@ -147,22 +147,16 @@ function validateLogin(){
     }
 }
 
-// function setLocalSUserInfo(data){
-//     localStorage.setItem('user_id',data.id);
-//     localStorage.setItem('user_avatar',data.avatar);
-//     localStorage.setItem('user_type',data.type);
-//     setCartLS(data.id);
-//     console.log(data.email);
-// }
 
-function setCartLS(id_user){
+function setCartLS(){
     $.ajax({
-        type: 'GET',
-        url: '/movieshop/module/client/module/cart/controller/controller_cart.php?op=getArrayItemsBD',
+        type: 'POST',
+        url: pretty("?module=cart&function=getArrayItemsBD"),
         dataType: 'json',
-        data:{"id_user":id_user},
+        data:{"token":localStorage.getItem("authToken")},
         success: function (data) {
             // console.log(data);
+            console.log(data);
             var items = ""; 
             for (let x = 0; x < data.length; x++) {
 
@@ -305,51 +299,26 @@ function logout(){
         
     // }
     firebase.auth().signOut();
-    
+
+    if (localStorage.getItem('cart-items') !== null && localStorage.getItem('cart-items') != ""){
+        var items = itemsLSToArray();
+        ajaxSaveCart(items);
+    }
     localStorage.removeItem('user_avatar');
     localStorage.removeItem('authToken');
     localStorage.removeItem('cart-items');
     location.href=pretty('?module=home');
-    
-
-    // $.ajax({
-    //     type: 'GET',
-    //     url: '/movieshop/module/client/module/login/controller/controller_login.php?op=logout',
-    //     dataType: 'json',
-    //     data:{},
-    //     success: function (data) {
-    //         if(data=='logout'){
-    //             if (localStorage.getItem('cart-items') !== null || localStorage.getItem('cart-items') != ""){
-    //                 console.log("entra en if: logout");
-    //                 // var items = itemsLSToArray();
-    //                 // ajaxSaveCart(items);
-    //             }
-                
-    //             localStorage.removeItem('user_avatar');
-    //             localStorage.removeItem('authToken');
-    //             localStorage.removeItem('cart-items');
-    //             location.href="index.php";
-    //         }else{
-    //             location.href="index.php?page=503";
-    //             console.log('error');
-    //         }
-            
-    //     },
-    //     error: function(){
-    //         location.href="index.php?page=503";
-    //         console.log('error');
-    //     }
-    // });
 }
 
 var ajaxSaveCart = function(data) {
     return new Promise(function(resolve, reject){
         $.ajax({
-            data: {"items":data,"idUser":localStorage.getItem('user_id')},
+            data: {"items":data,"token":localStorage.getItem('authToken')},
             type: 'POST',
-            url: '/movieshop/module/client/module/cart/controller/controller_cart.php?op=saveItemsCart',
+            url: pretty("?module=cart&function=saveItemsCart"),
         })
         .done(function(data){
+            console.log(data);
             resolve(data);
         })
         .fail(function(data){

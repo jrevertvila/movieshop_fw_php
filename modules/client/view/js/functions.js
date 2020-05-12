@@ -70,7 +70,7 @@ $(document).ready(function(){
     });
 
     $('#header-cart').on('click', function() {
-        location.href="index.php?page=cart";
+        location.href=pretty("?module=cart");
     });
 
     $('#shop').on('click', function() {

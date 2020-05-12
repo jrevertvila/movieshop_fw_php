@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>list_cart</name>
+        <uri>list_cart</uri>
+    </function>
+
+    <function>
+        <name>getUserBalance</name>
+        <uri>getUserBalance</uri>
+    </function>
+
+    <function>
+        <name>pushPurchase</name>
+        <uri>pushPurchase</uri>
+    </function>
+
+    <function>
+        <name>getItemCart</name>
+        <uri>getItemCart</uri>
+    </function>
+
+    <function>
+        <name>saveItemsCart</name>
+        <uri>saveItemsCart</uri>
+    </function>
+
+<function>
+        <name>getArrayItemsBD</name>
+        <uri>getArrayItemsBD</uri>
+    </function>
+
+</functions>

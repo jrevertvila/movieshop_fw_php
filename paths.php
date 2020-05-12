@@ -60,3 +60,8 @@
     define('CLIENT_PROFILE_PATH', CLIENT_MODULES_PATH . 'profile/');
     define('CLIENT_PROFILE_VIEW_PATH', CLIENT_MODULES_PATH . 'profile/view/');
     define('CLIENT_PROFILE_MODEL', CLIENT_MODULES_PATH . 'profile/model/model/');
+
+    //PROFILE
+    define('CLIENT_CART_PATH', CLIENT_MODULES_PATH . 'cart/');
+    define('CLIENT_CART_VIEW_PATH', CLIENT_MODULES_PATH . 'cart/view/');
+    define('CLIENT_CART_MODEL', CLIENT_MODULES_PATH . 'cart/model/model/');

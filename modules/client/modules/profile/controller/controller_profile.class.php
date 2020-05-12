@@ -99,4 +99,9 @@ class controller_profile {
         echo json_encode($json);        
     }
 
+    //SELECCIONAR COMPRAS POR FECHA/MINUTO: (FACTURA)
+    //select formatted_date,id_user,id_item,quantity from (SELECT DATE_FORMAT(`date_purchase`, '%Y-%m-%d %H:%i') AS `formatted_date`,id_user,id_item,quantity FROM checkouts) as t1
+    // group by formatted_date
+    // HAVING id_user = 'jrevertvila'
+
 }

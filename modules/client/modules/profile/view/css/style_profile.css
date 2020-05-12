@@ -279,6 +279,7 @@ input:disabled {
 }
 .show-movie-fav{
     display: none;
+    cursor: pointer;
 }
 
 .item-fav:hover > .show-movie-fav{
@@ -291,7 +292,7 @@ input:disabled {
     transition: 0.2s;
 }
 
-.unlike-movie-fav{display: none;}
+.unlike-movie-fav{display: none;cursor: pointer;}
 
 .item-fav:hover > .unlike-movie-fav{
     display: block;
