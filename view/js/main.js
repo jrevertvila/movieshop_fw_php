@@ -17,7 +17,7 @@ function activity(){
     if (token !== null){
         
         check_activity_token(token).then(function(data){
-            console.log(data);
+            // console.log(data);
             if (data == "true"){
                 get_user_id(token).then(function(data){
                     get_new_token(data.name).then(function(data){

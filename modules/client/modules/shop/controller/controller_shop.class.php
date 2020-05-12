@@ -59,10 +59,14 @@ class controller_shop {
 
     function checkFavUser(){
 
+        $payload = json_decode(decode_token($_POST['token']));               //payload del token que viene de localStorage
+        $id = $payload->name;
+
         $data = array(
             'id_movie' => $_POST['id_movie'],
-            'id_user' => $_POST['id_user']
+            'id_user' => $id
         );
+
         $json = loadModel(CLIENT_SHOP_MODEL, "shop_model", "checkFavUser", $data);
         
         if ($json){
@@ -76,9 +80,12 @@ class controller_shop {
 
     function removeFav(){
 
+        $payload = json_decode(decode_token($_POST['token']));               //payload del token que viene de localStorage
+        $id = $payload->name;
+
         $data = array(
             'id_movie' => $_POST['id_movie'],
-            'id_user' => $_POST['id_user']
+            'id_user' => $id
         );
         $json = loadModel(CLIENT_SHOP_MODEL, "shop_model", "removeFav", $data);
         
@@ -87,10 +94,14 @@ class controller_shop {
 
     function addFav(){
 
+        $payload = json_decode(decode_token($_POST['token']));               //payload del token que viene de localStorage
+        $id = $payload->name;
+
         $data = array(
             'id_movie' => $_POST['id_movie'],
-            'id_user' => $_POST['id_user']
+            'id_user' => $id
         );
+        
         $json = loadModel(CLIENT_SHOP_MODEL, "shop_model", "addFav", $data);
         
         echo json_encode($json);        

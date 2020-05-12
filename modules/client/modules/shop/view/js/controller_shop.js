@@ -4,22 +4,6 @@ var actualPage = 0;
 var lengthMovies = 0;
 
 $(document).ready(function(){
-    // ajaxData = {                        
-    //     "id_movie":'2106',
-    //     "id_user":'13'
-    // };
-    // $.ajax({
-    //     type: 'POST',
-    //     url: pretty("?module=shop&function=countAllMovies"),
-    //     data: ajaxData,
-    //     dataType: 'json',
-    //     success: function (data) {
-    //         console.log(data);
-    //     },
-    //     error: function(data) {
-    //         console.log(data);
-    //     }
-    // });
 
     if(localStorage.getItem('movie-details')=="null"){ // AL RECARGAR LA PAGINA COMPROBAR SI ESTABA EN EL DETAILS
         numItemsShop = 0;
@@ -44,7 +28,6 @@ function loadItems(type = "title",mode = "asc"){
     numItemsShop = (20*actualPage);
     if (localStorage.getItem('shop-genre')==="null"){
         if (!localStorage.hasOwnProperty('type') || !localStorage.hasOwnProperty('mode')){
-            console.log("1");
             urlAjax = pretty("?module=shop&function=getMovies");
             ajaxData = {                        
                 "limit":20,
@@ -54,7 +37,6 @@ function loadItems(type = "title",mode = "asc"){
                 "dir":"asc"
             };
         }else{
-            console.log("2");
             urlAjax = pretty("?module=shop&function=getMovies");
             ajaxData = {                        
                 "limit":20,
@@ -66,7 +48,6 @@ function loadItems(type = "title",mode = "asc"){
         }
         
     }else{
-        console.log("3");
         getPages("genres");
         urlAjax = pretty("?module=shop&function=getMoviesFiltered");
         ajaxData = {                        
@@ -79,7 +60,6 @@ function loadItems(type = "title",mode = "asc"){
     }
 
     if (localStorage.getItem('text-movie')!=="null"){
-        console.log("4");
         $("#search-bar").val(localStorage.getItem('text-movie'));
         urlAjax = pretty("?module=shop&function=getMoviesByTitle");
         ajaxData = {                        
@@ -175,11 +155,11 @@ function loadItems(type = "title",mode = "asc"){
 }
 
 function checkFavUser(id_movie,favItem){
-    if (localStorage.getItem('user_id') !== null && localStorage.getItem('user_type') !== null){ //comprobar que el usuario esté logueado
+    if (localStorage.getItem('authToken') !== null){ //comprobar que el usuario esté logueado
         $.ajax({
             type: 'POST',
             url: pretty("?module=shop&function=checkFavUser"),
-            data: {"id_movie":id_movie,"id_user":localStorage.getItem('user_id')},
+            data: {"id_movie":id_movie,"token":localStorage.getItem('authToken')},
             dataType: 'json',
             success: function (data) {
                 if (data == true){
@@ -228,15 +208,13 @@ function favClick(){
         var spanText = p1.children('span').text();
         var integer = parseInt(spanText, 10)
 
-        if (localStorage.getItem('user_id') !== null && localStorage.getItem('user_type') !== null){ //comprobar que el usuario esté logueado
+        if (localStorage.getItem('authToken') !== null){ //comprobar que el usuario esté logueado
             if ($(this).hasClass("fav-toggled")){
                 $.ajax({
                     type: 'POST',
                     url: pretty("?module=shop&function=removeFav"),
-                    data: {"id_movie":parentID,"id_user":localStorage.getItem('user_id')},
+                    data: {"id_movie":parentID,"token":localStorage.getItem('authToken')},
                     success: function () {
-                        // $(this).removeClass("fav-toggled");
-                        console.log("QUITADO");
                     },
                     error: function(data) {
                         console.log(data);
@@ -248,9 +226,8 @@ function favClick(){
                 $.ajax({
                     type: 'POST',
                     url: pretty("?module=shop&function=addFav"),
-                    data: {"id_movie":parentID,"id_user":localStorage.getItem('user_id')},
-                    success: function () {
-                        // $(this).addClass("fav-toggled");
+                    data: {"id_movie":parentID,"token":localStorage.getItem('authToken')},
+                    success: function (data) {
                     },
                     error: function(data) {
                         console.log(data);
@@ -261,7 +238,7 @@ function favClick(){
             }
         }else{
             alert('You have to be logged!');
-            location.href='index.php?page=login';
+            location.href=pretty("?module=login");
         }
         
     });

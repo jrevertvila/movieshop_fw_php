@@ -32,18 +32,20 @@ class shop_dao {
     }
 
     public function checkFavUser($db,$data) {
-        $sql = 'SELECT * FROM user_favorites_movies WHERE id_movie = '.$data['id_movie'].' AND id_user = '.$data['id_user'];
+        // return $data['id_user'];
+        $sql = 'SELECT * FROM user_favorites_movies WHERE id_movie = '.$data['id_movie'].' AND id_user = "'.$data['id_user'].'"';
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
 
     public function removeFav($db,$data) {
-        $sql = 'DELETE FROM user_favorites_movies WHERE id_movie = '.$data['id_movie'].' AND id_user = '.$data['id_user'];
+        $sql = 'DELETE FROM user_favorites_movies WHERE id_movie = '.$data['id_movie'].' AND id_user = "'.$data['id_user'].'"';
         return $stmt = $db->ejecutar($sql);
     }
 
     public function addFav($db,$data) {
-        $sql = 'INSERT INTO user_favorites_movies (id_movie, id_user) VALUES ('.$data['id_movie'].', '.$data['id_user'].')';
+        // return $data['id_user'];
+        $sql = 'INSERT INTO user_favorites_movies (id_movie, id_user) VALUES ('.$data['id_movie'].', "'.$data['id_user'].'")';
         return $stmt = $db->ejecutar($sql);
     }
 
