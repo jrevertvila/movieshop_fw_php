@@ -99,9 +99,27 @@ class controller_profile {
         echo json_encode($json);        
     }
 
-    //SELECCIONAR COMPRAS POR FECHA/MINUTO: (FACTURA)
-    //select formatted_date,id_user,id_item,quantity from (SELECT DATE_FORMAT(`date_purchase`, '%Y-%m-%d %H:%i') AS `formatted_date`,id_user,id_item,quantity FROM checkouts) as t1
-    // group by formatted_date
-    // HAVING id_user = 'jrevertvila'
+    function get_checkouts_user(){
+
+        $token = $_POST['token_jwt'];
+        $decoded = json_decode(decode_token($token));
+        $data = array("id" => $decoded->name);
+        $return = loadModel(CLIENT_PROFILE_MODEL, "profile_model", "get_checkouts_user", $data);
+
+        echo json_encode($return); 
+    }
+
+    function get_details_checkout(){
+
+        $token = $_POST['token_jwt'];
+        $decoded = json_decode(decode_token($token));
+        $data = array(
+            "id" => $decoded->name,
+            "date" => $_POST['date']
+        );
+        $return = loadModel(CLIENT_PROFILE_MODEL, "profile_model", "get_details_checkout", $data);
+
+        echo json_encode($return); 
+    }
 
 }

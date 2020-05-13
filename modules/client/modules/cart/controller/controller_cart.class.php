@@ -67,11 +67,12 @@ class controller_cart {
                 $arrPush = array(
                     "id_user" => $userID,
                     "id_item" => $items[$x]['id'],
-                    "quantity" => $items[$x]['cant']
+                    "quantity" => $items[$x]['cant'],
+                    "money" => $total
                 );
                 loadModel(CLIENT_CART_MODEL, "cart_model", "pushPurchase", $arrPush);
             }
-    
+            echo json_encode($arrPush);
             for ($x=0; $x < count($items); $x++) { 
                 $arrDel = array(
                     "id_user" => $userID,

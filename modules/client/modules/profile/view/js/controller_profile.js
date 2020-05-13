@@ -200,9 +200,86 @@ function load_orders_view(){
             '<span>Orders</span>'+
         '</div>'+
         '<div class="wrapper-pool-right">'+
-            
+        '<div class="wrapper-orders">'+
+        '<table id="table_orders" class="table table-striped table-bordered" style="width:90%">'+
+            '<thead>'+
+                '<tr>'+
+                    '<th>Purchase ID</th>'+
+                    '<th>Products</th>'+
+                    '<th>State</th>'+
+                    '<th>Date</th>'+
+                    '<th>Details</th>'+
+                '</tr>'+
+            '</thead>'+
+            '<tbody>'+
+        '<div>'+
         '</div>'
     );
+    get_checkouts_user().then(function(data){
+        for (let x = 0; x < data.length; x++) {
+            idRow1 = data[x].formatted_date;
+            idRow = idRow1.replace('-','').replace(' ','').replace(':','').replace('-','');
+
+            $("#table_orders").append(
+                '<tr>'+
+                    '<td>'+idRow+'</td>'+
+                    '<td>'+data[x].items+'</td>'+
+                    '<td>Success</td>'+
+                    '<td>'+data[x].formatted_date+'</td>'+
+                    '<td><button class="btn btn-danger color-red-light btn-show-order" id="'+data[x].formatted_date+'">Show</button></td>'+
+                '</tr>'
+            );
+        }
+        $("#table_orders").append(
+            '</tbody>'+
+            '</table>'
+        );
+
+        $('#table_orders').DataTable({
+            "scrollY":"200px",
+            "scrollCollapse": true
+        });
+        
+        $('.btn-show-order').on('click',function(){
+            id = $(this).attr('id');
+            idRow1 = id;
+            idRow = idRow1.replace('-','').replace(' ','').replace(':','').replace('-','');
+            get_details_checkout(id).then(function(data){
+
+                html = '<div class="wrapper-details-checkout">';
+
+                for (let i = 0; i < data.length; i++) {
+                    html = html +
+                    '<div class="item-details-checkout" id="'+data[i].id+'">'+
+                        '<img class="details-check-img" src="'+data[i].coverimg+'">'+
+                        '<span class="details-check-title">'+data[i].title+'</span>'+
+                        '<span class="details-check-quant">Quantity: '+data[i].quantity+'</span>'+
+                        '<span class="details-check-price">Total Price: '+(data[i].quantity*data[i].price)+'</span>'+
+                    '</div>'
+                    
+                }
+
+                html = html+'<div>';
+
+                $.dialog({
+                    title: 'Purchase Nº '+idRow,
+                    content: html,
+                    boxWidth: '700px',
+                    useBootstrap: false,
+                    onOpen: function () {
+                        $('.item-details-checkout').on('click',function(){
+                            id = $(this).attr('id');
+                            localStorage.setItem('movie-details',id);
+                            location.href=pretty("?module=shop");
+                        });
+                    }
+                });
+            });
+        });
+        changeLang();
+    });
+
+
 }
 
 function load_favs_view(){
@@ -289,6 +366,45 @@ var get_data_user = function() {
             data: {"token_jwt":token},
             type: 'POST',
             url: pretty("?module=profile&function=get_data_user"),
+        })
+        .done(function(data){
+            resolve(JSON.parse(data));
+        })
+        .fail(function(data){
+            console.log(data);
+            reject("Error");
+        });
+    })
+}
+
+var get_checkouts_user = function() {
+    var token = localStorage.getItem('authToken');
+    return new Promise(function(resolve, reject){
+        $.ajax({
+            data: {"token_jwt":token},
+            type: 'POST',
+            url: pretty("?module=profile&function=get_checkouts_user"),
+        })
+        .done(function(data){
+            resolve(JSON.parse(data));
+        })
+        .fail(function(data){
+            console.log(data);
+            reject("Error");
+        });
+    })
+}
+
+var get_details_checkout = function(date) {
+    var token = localStorage.getItem('authToken');
+    return new Promise(function(resolve, reject){
+        $.ajax({
+            data: {
+                "token_jwt":token,
+                "date":date
+            },
+            type: 'POST',
+            url: pretty("?module=profile&function=get_details_checkout"),
         })
         .done(function(data){
             resolve(JSON.parse(data));

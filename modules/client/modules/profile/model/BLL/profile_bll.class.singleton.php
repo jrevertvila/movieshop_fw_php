@@ -34,4 +34,12 @@
 			return $this->dao->removeFav($this->db,$data);
 		}
 
+		public function get_checkouts_user($data){
+			return $this->dao->get_checkouts_user($this->db,$data);
+		}
+
+		public function get_details_checkout($data){
+			return $this->dao->get_details_checkout($this->db,$data);
+		}
+
 	}

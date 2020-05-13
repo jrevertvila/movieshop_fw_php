@@ -29,5 +29,13 @@ class profile_model {
     public function removeFav($data){
         return $this->bll->removeFav($data);
     }
+
+    public function get_checkouts_user($data){
+        return $this->bll->get_checkouts_user($data);
+    }
+
+    public function get_details_checkout($data){
+        return $this->bll->get_details_checkout($data);
+    }
     
 }

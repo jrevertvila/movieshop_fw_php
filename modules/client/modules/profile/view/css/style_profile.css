@@ -303,3 +303,82 @@ input:disabled {
     font-size: 40px;
     transition: 0.2s;
 }
+
+.wrapper-orders{
+    /* overflow: scroll; */
+    width: 100%;
+    height: 100%;
+}
+
+#table_orders{
+    /* height: 100%; */
+}
+
+.color-red-light{
+    background-color: #ff4747 !important;
+    border: 1px solid #ff4747;
+}
+
+.btn-show-order{
+    margin-left: 20px;
+}
+
+.item-details-checkout{
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    transition: 0.2s;
+}
+
+.item-details-checkout:hover{
+    background-color: rgb(235, 235, 235);
+}
+
+.item-details-checkout:not(:last-child){
+    margin-bottom: 15px;
+}
+
+.details-check-title{
+    font-size: 20px;
+    font-weight: 500;
+    color:  rgb(51, 51, 51);
+}
+
+.details-check-quant{
+    font-size: 20px;
+    font-weight: 500;
+    color:  rgb(51, 51, 51);
+}
+
+.details-check-price{
+    font-size: 20px;
+    font-weight: 500;
+    color:  rgb(51, 51, 51);
+}
+
+.details-check-img{
+    width: 100px;
+    border-radius: 5px;
+}
+
+.wrapper-details-checkout{
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 500px;
+}
+
+.wrapper-details-checkout::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+}
+.wrapper-details-checkout::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+}
+.wrapper-details-checkout::-webkit-scrollbar-thumb {
+    background-color: #ff4747;    /* color of the scroll thumb */
+    border-radius: 15px;       /* roundness of the scroll thumb */
+    border: 3px solid transparent;  /* creates padding around scroll thumb */
+}

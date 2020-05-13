@@ -40,4 +40,14 @@
         <uri>removeFav</uri>
     </function>
 
+    <function>
+        <name>get_checkouts_user</name>
+        <uri>get_checkouts_user</uri>
+    </function>
+
+    <function>
+        <name>get_details_checkout</name>
+        <uri>get_details_checkout</uri>
+    </function>
+
 </functions>

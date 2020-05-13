@@ -20,7 +20,7 @@ class cart_dao {
     }
 
     public function pushPurchase($db,$data) {
-        $sql = 'INSERT INTO checkouts(id_user,id_item,quantity) VALUES("'.$data['id_user'].'","'.$data['id_item'].'","'.$data['quantity'].'")';
+        $sql = 'INSERT INTO checkouts(id_user,id_item,quantity,money) VALUES("'.$data['id_user'].'","'.$data['id_item'].'","'.$data['quantity'].'","'.$data['money'].'")';
         return $stmt = $db->ejecutar($sql);
     }
 

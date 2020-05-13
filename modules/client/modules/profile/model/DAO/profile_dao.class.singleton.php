@@ -35,4 +35,21 @@ class profile_dao {
         return $stmt = $db->ejecutar($sql);
     }
 
+    public function get_checkouts_user($db,$data) {
+        // $sql = 'select formatted_date,count(*) as items from (SELECT DATE_FORMAT(`date_purchase`, "%Y-%m-%d %H:%i") AS `formatted_date`,id_user,id_item,quantity FROM checkouts) as t1 group by formatted_date HAVING id_user = "'.$data['id'].'"';
+        
+        $sql = 'select formatted_date,count(*) as items,money from (SELECT DATE_FORMAT(`date_purchase`, "%Y-%m-%d %H:%i") AS `formatted_date`,id_user,id_item,quantity,money FROM checkouts WHERE id_user = "'.$data['id'].'") as t1 group by formatted_date';
+        
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
+    public function get_details_checkout($db,$data) {
+        // $sql = 'select * from films where id in(select id_item from (SELECT DATE_FORMAT(`date_purchase`, "%Y-%m-%d %H:%i") AS formatted_date,id_user,id_item,quantity,money FROM checkouts WHERE id_user = "'.$data['id'].'")t1 where formatted_date = "'.$data['date'].'")';
+        $sql = 'select f.*,t2.quantity from films f inner join (select * from (SELECT DATE_FORMAT(`date_purchase`, "%Y-%m-%d %H:%i") AS formatted_date,id_user,id_item,quantity,money FROM checkouts WHERE id_user = "'.$data['id'].'")t1 where formatted_date = "'.$data['date'].'")t2 on f.id = t2.id_item where f.id in(select id_item from (SELECT DATE_FORMAT(`date_purchase`, "%Y-%m-%d %H:%i") AS formatted_date,id_user,id_item,quantity,money FROM checkouts WHERE id_user = "'.$data['id'].'")t1 where formatted_date = "'.$data['date'].'")';
+        
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
 }
